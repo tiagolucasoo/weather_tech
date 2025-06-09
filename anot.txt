@@ -1,0 +1,27 @@
+Anotações Gerais
+
+Para o tipo do tempo utilizar o weathercode - Baseado no WMO World Meteorological Organization
+    0: "Céu limpo",
+    1: "Principalmente limpo",
+    2: "Parcialmente nublado",
+    3: "Nublado",
+    45: "Névoa",
+    48: "Névoa com gelo",
+    51: "Garoa fraca",
+    53: "Garoa moderada",
+    55: "Garoa intensa",
+    61: "Chuva fraca",
+    63: "Chuva moderada",
+    65: "Chuva forte",
+    71: "Neve fraca",
+    73: "Neve moderada",
+    75: "Neve forte",
+    80: "Pancadas fracas",
+    81: "Pancadas moderadas",
+    82: "Pancadas fortes",
+    95: "Tempestade com chuva leve/moderada",
+    96: "Tempestade com granizo leve",
+    99: "Tempestade com granizo forte"
+
+Nesse exato momento (09/06 - 00h15 está com o weathercode 3 (Nublado) - Fazer um script a parte apenas para isso junto aos icons)
+

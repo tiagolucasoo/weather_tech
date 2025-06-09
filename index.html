@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <div class="container">
+    <div class="Logo">
+    </div>
+
+    <div class="Pesquisa">
+      <select id="combo_Pais">
+        <option value="00" disabled selected>🌍 Selecione o País:</option>
+        <option value="BR">🇧🇷 &nbsp; Brasil</option>
+        <option value="AR">🇦🇷 &nbsp; Argentina</option>
+        <option value="CL">🇨🇱 &nbsp; Chile</option>
+        <option value="CO">🇨🇴 &nbsp; Colômbia</option>
+        <option value="EC">🇪🇨 &nbsp; Equador</option>
+        <option value="UY">🇺🇾 &nbsp; Uruguai</option>
+        <option value="VE">🇻🇪 &nbsp; Venezuela</option>
+        <option value="BO">🇧🇴 &nbsp; Bolívia</option>
+        <option value="SR">🇸🇷 &nbsp; Suriname</option>
+        <option value="GY">🇬🇾 &nbsp; Guiana</option>
+        <option value="GF">🇬🇫 &nbsp; Guiana Francesa</option>
+      </select>
+
+      <input class="inputCidade" placeholder="Qual a cidade?" />
+      <button type="submit" id="buscar">Pesquisar</button>
+    </div>
+
+    <div class="Clima">
+      <p class="info_pais"></p> <p class="info_estado"></p> <p class="info_cidade"></p>
+      
+      <p class="resultado"></p>
+      <p class="info_temperatura"></p>
+      <p class="info_clima"></p>
+      <p class="info_clima2"></p>
+      <p>Chuva</p>
+      <p>Mínima Dia</p>
+      <p>Máxima Dia</p>
+    </div>
+    <div class="Next_Days_1">
+      <p class="resultado2"></p>
+      <cod-00></cod-00>teste
+      <cod-02></cod-02>2tes
+      <cod-95></cod-95>tes
+    </div>
+    <div class="Next_Days_2"></div>
+    <div class="Rodape">Rodapé</div>
+  </div>
+  <script src="script.js"></script>
+  <script src="weathercode.js"></script>
+</body>
+</html>
