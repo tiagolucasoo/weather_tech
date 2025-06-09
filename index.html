@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Weather Tech - Previsão de Tempo</title>
   <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
@@ -29,28 +29,65 @@
 
       <input class="inputCidade" placeholder="Qual a cidade?" />
       <button type="submit" id="buscar">Pesquisar</button>
+      <button type="submit" class="menor" id=""><cod-att></cod-att></button>
+      <button type="submit" class="menor" id=""><cod-limpar></cod-limpar></button>
     </div>
 
     <div class="Clima">
-      <p class="info_pais"></p> <p class="info_estado"></p> <p class="info_cidade"></p>
-      
-      <p class="resultado"></p>
+      <div class="info_loc">
+        <p class="info_pais"></p>
+        <p class="info_estado"></p>
+        <p class="info_cidade"></p>
+      </div>
       <p class="info_temperatura"></p>
       <p class="info_clima"></p>
-      <p class="info_clima2"></p>
-      <p>Chuva</p>
-      <p>Mínima Dia</p>
-      <p>Máxima Dia</p>
+      <p class="info_vento"></p>
+
+      <p class="info_minima"></p>
+      <p class="info_maxima"></p>
+
+      <p class="erro"></p>
     </div>
+
     <div class="Next_Days_1">
       <p class="resultado2"></p>
-      <cod-00></cod-00>teste
-      <cod-02></cod-02>2tes
-      <cod-95></cod-95>tes
+      <div class="info_loc">
+        <p class="">Dia 2</p>
+        <p class="">Clima</p>
+        <p class="">Min/Max</p>
+      </div>
+      <div class="info_loc">
+        <p class="">Dia 3</p>
+        <p class="">Clima</p>
+        <p class="">Min/Max</p>
+      </div>
+      <div class="info_loc">
+        <p class="">Dia 4</p>
+        <p class="">Clima</p>
+        <p class="">Min/Max</p>
+      </div>
+      <div class="info_loc">
+        <p class="">Dia 5</p>
+        <p class="">Clima</p>
+        <p class="">Min/Max</p>
+      </div>
+      <div class="info_loc">
+        <p class="">Dia 6</p>
+        <p class="">Clima</p>
+        <p class="">Min/Max</p>
+      </div>
+      <div class="info_loc">
+        <p class="">Dia 7</p>
+        <p class="">Clima</p>
+        <p class="">Min/Max</p>
+      </div>
     </div>
+
     <div class="Next_Days_2"></div>
-    <div class="Rodape">Rodapé</div>
+
+    <div class="Rodape">Desenvolvido por Tiago Lucas. Clique aqui para acessar meu GitHub ou meu LinkedIn</div>
   </div>
+
   <script src="script.js"></script>
   <script src="weathercode.js"></script>
 </body>

@@ -14,8 +14,9 @@ function defIcons(){ // Associa a classe com o chamado em HTML
     customElements.define('cod-71', icone_71_73e75);
     customElements.define('cod-80', icone_80_81e82);
     customElements.define('cod-95', icone_95_96e99);
-}
-
+    customElements.define('cod-att', icone_atualizar);
+    customElements.define('cod-limpar', icone_limpar);
+}  
 class icone_0e1 extends HTMLElement { // 0 Céu Limpo & 1 Parcialmente Limpo
     connectedCallback() {
         this.innerHTML = `
@@ -88,7 +89,22 @@ class icone_95_96e99 extends HTMLElement { // 80 Tempestade com chuva, 96 Tempes
         this.style.cursor = "pointer";
     }
 }
-
+class icone_atualizar extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = `
+            <i class="fa fa-sync" aria-hidden="true" style="color: #fff"></i>
+            `;
+        this.style.cursor = "pointer";
+    }
+}
+class icone_limpar extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = `
+            <i class="fa fa-eraser" aria-hidden="true" style="color: #fff"></i>
+            `;
+        this.style.cursor = "pointer";
+    }
+}
 function validacao_clima(dadosClima) {
     const tipo_clima = dadosClima.current_weather.weathercode;
     switch (tipo_clima) {
@@ -97,14 +113,22 @@ function validacao_clima(dadosClima) {
         case 2: return 'Parcialmente Nublado'
         case 3: return 'Nublado'
         case 45: return 'Névoa'
-        case 3: return 'Névoa com Gelo'
-        case 3: return ''
-        case 3: return ''
-        case 3: return ''
-        case 3: return ''
-        case 3: return ''
-        case 3: return ''
-
+        case 48: return 'Névoa com Gelo'
+        case 51: return 'Garoa Fraca'
+        case 53: return 'Garoa Moderada'
+        case 55: return 'Garoa Intensa'
+        case 61: return 'Chuva Fraca'
+        case 63: return 'Chuva Moderada'
+        case 65: return 'Chuva Forte'
+        case 71: return 'Neve Fraca'
+        case 73: return 'Neve Moderada'
+        case 75: return 'Neve Forte'
+        case 80: return 'Pancadas Fracas de Chuva'
+        case 81: return 'Pancadas Moderadas de Chuva'
+        case 82: return 'Pancadas Fortes de Chuva'
+        case 95: return 'Tempestade com chuva leve'
+        case 96: return 'Tempestade com granizo leve'
+        case 99: return 'Tempestade com granizo forte'
     }
 }
 
