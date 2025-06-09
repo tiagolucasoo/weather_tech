@@ -57,10 +57,10 @@ class icone_51_53e55 extends HTMLElement { // 51 Garoa Fraca, 53 Garoa Moderada 
         this.style.cursor = "pointer";
     }
 }
-class icone_61_63e65 extends HTMLElement { // 51 Garoa Fraca, 53 Garoa Moderada & 55 Garoa Intensa
+class icone_61_63e65 extends HTMLElement { // 61 Chuva Fraca, 63 Chuva Moderada & 65 Chuva Intensa
     connectedCallback() {
         this.innerHTML = `
-            <i class="fa fa-cloud-showers-heavy" aria-hidden="true" style="color: #DC853D"></i>
+            <i class="fa fa-cloud-showers-heavy" aria-hidden="true" style="color: #1B97D5"></i>
             `;
         this.style.cursor = "pointer";
     }
@@ -68,7 +68,7 @@ class icone_61_63e65 extends HTMLElement { // 51 Garoa Fraca, 53 Garoa Moderada 
 class icone_71_73e75 extends HTMLElement { // 71 Neve Fraca, 73 Moderada & 75 Forte
     connectedCallback() {
         this.innerHTML = `
-            <i class="fa fa-snowflake" aria-hidden="true" style="color: #DC853D"></i>
+            <i class="fa fa-snowflake" aria-hidden="true" style="color: #ABD1F3"></i>
             `;
         this.style.cursor = "pointer";
     }
@@ -76,7 +76,7 @@ class icone_71_73e75 extends HTMLElement { // 71 Neve Fraca, 73 Moderada & 75 Fo
 class icone_80_81e82 extends HTMLElement { // 80 Pancada Fraca, 81 Pancadas Moderadas & 82 Pancadas Fortes
     connectedCallback() {
         this.innerHTML = `
-            <i class="fa fa-cloud-showers-heavy" aria-hidden="true" style="color: #DC853D"></i>
+            <i class="fa fa-cloud-showers-heavy" aria-hidden="true" style="color: #1B97D5"></i>
             `;
         this.style.cursor = "pointer";
     }
@@ -84,7 +84,7 @@ class icone_80_81e82 extends HTMLElement { // 80 Pancada Fraca, 81 Pancadas Mode
 class icone_95_96e99 extends HTMLElement { // 80 Tempestade com chuva, 96 Tempestade com Granizo Leve & 99 Tempestade com Granizo Forte
     connectedCallback() {
         this.innerHTML = `
-            <i class="fa fa-bolt" aria-hidden="true" style="color: #DC853D"></i>
+            <i class="fa fa-bolt" aria-hidden="true" style="color: #1B97D5"></i>
             `;
         this.style.cursor = "pointer";
     }
@@ -107,29 +107,43 @@ class icone_limpar extends HTMLElement {
 }
 function validacao_clima(dadosClima) {
     const tipo_clima = dadosClima.current_weather.weathercode;
-    switch (tipo_clima) {
-        case 0: return 'Ensolarado'
-        case 1: return 'Parcialmente Limpo'
-        case 2: return 'Parcialmente Nublado'
-        case 3: return 'Nublado'
-        case 45: return 'Névoa'
-        case 48: return 'Névoa com Gelo'
-        case 51: return 'Garoa Fraca'
-        case 53: return 'Garoa Moderada'
-        case 55: return 'Garoa Intensa'
-        case 61: return 'Chuva Fraca'
-        case 63: return 'Chuva Moderada'
-        case 65: return 'Chuva Forte'
-        case 71: return 'Neve Fraca'
-        case 73: return 'Neve Moderada'
-        case 75: return 'Neve Forte'
-        case 80: return 'Pancadas Fracas de Chuva'
-        case 81: return 'Pancadas Moderadas de Chuva'
-        case 82: return 'Pancadas Fortes de Chuva'
-        case 95: return 'Tempestade com chuva leve'
-        case 96: return 'Tempestade com granizo leve'
-        case 99: return 'Tempestade com granizo forte'
+    switch (tipo_clima){
+        case 0: return 'Ensolarado';
+        case 1: return 'Parcialmente Limpo';
+        case 2: return 'Parcialmente Nublado';
+        case 3: return 'Nublado';
+        case 45: return 'Névoa';
+        case 48: return 'Névoa com Gelo';
+        case 51: return 'Garoa Fraca';
+        case 53: return 'Garoa Moderada';
+        case 55: return 'Garoa Intensa';
+        case 61: return 'Chuva Fraca';
+        case 63: return 'Chuva Moderada';
+        case 65: return 'Chuva Forte';
+        case 71: return 'Neve Fraca';
+        case 73: return 'Neve Moderada';
+        case 75: return 'Neve Forte';
+        case 80: return 'Pancadas Fracas de Chuva';
+        case 81: return 'Pancadas Moderadas de Chuva';
+        case 82: return 'Pancadas Fortes de Chuva';
+        case 85: return 'Pancadas Leves de Neve';
+        case 95: return 'Tempestade com chuva leve';
+        case 96: return 'Tempestade com granizo leve';
+        case 99: return 'Tempestade com granizo forte';
+        default: return 'Clima desconhecido';
     }
+}
+function gerarIconeClima(clima) {
+    if (clima === 0 || clima === 1) return `<cod-00></cod-00>`;
+    if (clima === 2) return `<cod-02></cod-02>`;
+    if (clima === 3) return `<cod-03></cod-03>`;
+    if (clima === 45 || clima === 48) return `<cod-45></cod-45>`;
+    if (clima === 51 || clima === 53 || clima === 55) return `<cod-51></cod-51>`;
+    if (clima === 61 || clima === 63 || clima === 65) return `<cod-61></cod-61>`;
+    if (clima === 71 || clima === 73 || clima === 75 || clima === 85) return `<cod-71></cod-71>`;
+    if (clima === 80 || clima === 81 || clima === 82) return `<cod-80></cod-80>`;
+    if (clima === 95 || clima === 96 || clima === 99) return `<cod-95></cod-95>`;
+    return '';
 }
 
 importIcons();
