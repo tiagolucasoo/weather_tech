@@ -4,13 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Tech - Previsão de Tempo</title>
-  <link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="css/estilo.css"> <!-- Folha Principal | Posicionamento, classes e afins -->
+  <link rel="stylesheet" href="css/componentes.css"> <!-- Componentes imutáveis | Buttons, Select, Input... -->
 </head>
 <body>
   <div class="container">
     <div class="Logo">
+
     </div>
 
+    <!-- Select, Input e Button (HTML, CSS, JS - OK)-->
+    <!-- Deixar Responsivo -->
     <div class="Pesquisa">
       <select id="combo_Pais">
         <option value="00" disabled selected>🌍 Selecione o País:</option>
@@ -29,27 +33,39 @@
 
       <input class="inputCidade" placeholder="Qual a cidade?" />
       <button type="submit" id="buscar">Pesquisar</button>
-      <button type="submit" class="menor" id=""><cod-att></cod-att></button>
+      <!-- <button type="submit" class="menor" id=""><cod-att></cod-att></button> -->
       <button onclick="limparDados()" class="menor"><cod-limpar></cod-limpar></button>
     </div>
 
+    <!-- HTML, JS OK | Finalizar CSS -->
     <div class="Clima">
+      <div class="info_loc">
+        <div class="icone_clima"></div>
+        <p class="info_temperatura"></p>
+        <p class="info_clima"></p>
+      </div>
+
       <div class="info_loc">
         <p class="info_pais"></p>
         <p class="info_estado"></p>
         <p class="info_cidade"></p>
       </div>
-      <p class="info_temperatura"></p>
-      <p class="info_clima"></p>
-      <p class="info_vento"></p>
-      <p class="info_chuva"></p>
 
-      <p class="info_minima"></p>
-      <p class="info_maxima"></p>
+      <div class="info_loc">
+        <p class="info_vento"></p>
+        <p class="info_chuva"></p>
+        <p class="info_precipitacao"></p>
+      </div>
 
+      <div class="info_loc">
+        <p class="info_minima"></p>
+        <p class="info_maxima"></p>
+      </div>
+      
       <p class="erro"></p>
     </div>
 
+    <!-- HTML OK, JS "OK", CSS "OK" | FINALIZAR CONFIGURAÇÃO DA DATA APENAS -->
     <div class="Next_Days_1">
       <div class="container1">
 
@@ -61,6 +77,7 @@
           </div>
           <div class="bloco_descricao">
             <p class="info_clima2"></p>
+            <small class="info_chuva2"></small>
           </div>
         </div>
 
@@ -72,6 +89,7 @@
           </div>
           <div class="bloco_descricao">
             <p class="info_clima3"></p>
+            <small class="info_chuva3"></small>
           </div>
         </div>
 
@@ -83,6 +101,7 @@
           </div>
           <div class="bloco_descricao">
             <p class="info_clima4"></p>
+            <small class="info_chuva4"></small>
           </div>
         </div>
       </div>
@@ -97,6 +116,7 @@
           </div>
           <div class="bloco_descricao">
             <p class="info_clima5"></p>
+            <small class="info_chuva5"></small>
           </div>
         </div>
 
@@ -108,6 +128,7 @@
           </div>
           <div class="bloco_descricao">
             <p class="info_clima6"></p>
+            <small class="info_chuva6"></small>
           </div>
         </div>
 
@@ -119,13 +140,153 @@
           </div>
           <div class="bloco_descricao">
             <p class="info_clima7"></p>
+            <small class="info_chuva7"></small>
           </div>
         </div>
-
+        
       </div>
+      
     </div>
 
-    <div class="Next_Days_2"></div>
+    <!-- Escopo OK -->
+    <div class="Next_Days_2">
+      <h2 class="info_loc">Descrição Completa - Próximos 15 Dias</h2>
+        <table>
+          <thead>
+            <tr class="">
+              <th><p class="tdat">Data</p></th>
+              <th><p class="tdia">Dia</th>
+              <th><p class="tdes">Descrição</th>
+              <th><p class="tmin">Mínima</th>
+              <th><p class="tmax">Máxima</th>
+              <th><p class="tchu">Chuva / Precipitação</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><p class="g_data1"></td>
+              <td><p class="g_dia1"></td>
+              <td><p class="g_descricao1"></td>
+              <td><p class="g_minima1"></td>
+              <td><p class="g_maxima1"></td>
+              <td><p class="g_chuva1"></td>
+            </tr>
+            <tr>
+              <td><p class="g_data2"></td>
+              <td><p class="g_dia2"></td>
+              <td><p class="g_descricao2"></td>
+              <td><p class="g_minima2"></td>
+              <td><p class="g_maxima2"></td>
+              <td><p class="g_chuva2"></td>
+            </tr>
+            <tr>
+              <td><p class="g_data3"></td>
+              <td><p class="g_dia3"></td>
+              <td><p class="g_descricao3"></td>
+              <td><p class="g_minima3"></td>
+              <td><p class="g_maxima3"></td>
+              <td><p class="g_chuva3"></td>
+            </tr>
+            <tr>
+              <td><p class="g_data4"></td>
+              <td><p class="g_dia4"></td>
+              <td><p class="g_descricao4"></td>
+              <td><p class="g_minima4"></td>
+              <td><p class="g_maxima4"></td>
+              <td><p class="g_chuva4"></td>
+            </tr>
+            <tr>
+              <td><p class="g_data5"></td>
+              <td><p class="g_dia5"></td>
+              <td><p class="g_descricao5"></td>
+              <td><p class="g_minima5"></td>
+              <td><p class="g_maxima5"></td>
+              <td><p class="g_chuva5"></td>
+            </tr>
+            <tr>
+              <td><p class="g_data6"></td>
+              <td><p class="g_dia6"></td>
+              <td><p class="g_descricao6"></td>
+              <td><p class="g_minima6"></td>
+              <td><p class="g_maxima6"></td>
+              <td><p class="g_chuva6"></td>
+            </tr>
+            <tr>
+              <td><p class="g_data7"></td>
+              <td><p class="g_dia7"></td>
+              <td><p class="g_descricao7"></td>
+              <td><p class="g_minima7"></td>
+              <td><p class="g_maxima7"></td>
+              <td><p class="g_chuva7"></td>
+            </tr>
+            <tr>
+              <td><p class="g_data8"></td>
+              <td><p class="g_dia8"></td>
+              <td><p class="g_descricao8"></td>
+              <td><p class="g_minima8"></td>
+              <td><p class="g_maxima8"></td>
+              <td><p class="g_chuva8"></td>
+            </tr>
+            <tr>
+              <td><p class="g_data9"></td>
+              <td><p class="g_dia9"></td>
+              <td><p class="g_descricao9"></td>
+              <td><p class="g_minima9"></td>
+              <td><p class="g_maxima9"></td>
+              <td><p class="g_chuva9"></td>
+            </tr>
+            <tr>
+              <td><p class="g_data10"></td>
+              <td><p class="g_dia10"></td>
+              <td><p class="g_descricao10"></td>
+              <td><p class="g_minima10"></td>
+              <td><p class="g_maxima10"></td>
+              <td><p class="g_chuva10"></td>
+            </tr>
+            <tr>
+              <td><p class="g_data11"></td>
+              <td><p class="g_dia11"></td>
+              <td><p class="g_descricao11"></td>
+              <td><p class="g_minima11"></td>
+              <td><p class="g_maxima11"></td>
+              <td><p class="g_chuva11"></td>
+            </tr>
+            <tr>
+              <td><p class="g_data12"></td>
+              <td><p class="g_dia12"></td>
+              <td><p class="g_descricao12"></td>
+              <td><p class="g_minima12"></td>
+              <td><p class="g_maxima12"></td>
+              <td><p class="g_chuva12"></td>
+            </tr>
+            <tr>
+              <td><p class="g_data13"></td>
+              <td><p class="g_dia13"></td>
+              <td><p class="g_descricao13"></td>
+              <td><p class="g_minima13"></td>
+              <td><p class="g_maxima13"></td>
+              <td><p class="g_chuva13"></td>
+            </tr>
+            <tr>
+              <td><p class="g_data14"></td>
+              <td><p class="g_dia14"></td>
+              <td><p class="g_descricao14"></td>
+              <td><p class="g_minima14"></td>
+              <td><p class="g_maxima14"></td>
+              <td><p class="g_chuva14"></td>
+            </tr>
+            <tr>
+              <td><p class="g_data15"></td>
+              <td><p class="g_dia15"></td>
+              <td><p class="g_descricao15"></td>
+              <td><p class="g_minima15"></td>
+              <td><p class="g_maxima15"></td>
+              <td><p class="g_chuva15"></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
 
     <div class="Rodape">
       <p>2025&nbsp;&nbsp;•&nbsp;&nbsp;Desenvolvido por&nbsp;<b>Tiago Lucas.</b>&nbsp;&nbsp;Acesse meu&nbsp;
@@ -133,7 +294,11 @@
         <a href="https://linkedin.com/in/tiagoolucas">LinkedIn.</a></p></div>
   </div>
 
-  <script src="script.js"></script>
-  <script src="weathercode.js"></script>
+  <!-- Importação | Se necessário separar um arquivo próprio para o Head do essencial-->
+  <script src="js/script.js"></script> <!-- Código Principal-->
+  <script src="js/weathercode.js"></script> <!-- Icones e Criação das TAG's dos Icones -->
+  <script src="js/utils.js"></script> <!-- Validações e Formatações -->
+  <script src="js/view.js"></script>
+
 </body>
 </html>

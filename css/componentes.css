@@ -1,0 +1,113 @@
+/*  Separado aqui a parte dos componentes (Buttons, Input, Select...)     */
+/*  Feito para poupar linhas do CSS Principal para demais configurações   */
+/*  Tiago Lucas (Git Tiagolucasoo)                                        */
+
+input, select{
+  margin-top: 25px;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 1.5px solid #bbb;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  color: #333;
+  outline: none;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 280px;
+}
+input:focus {
+  border-color: #888;
+  box-shadow: 0 0 8px rgba(136, 136, 136, 0.5);
+  background-color: #fff;
+}
+input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+
+button {
+  margin-top: 25px;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 1.5px solid #bbb;
+  border-radius: 8px;
+  background-color: #1B97D5;
+  color: #FFF;
+  outline: none;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  transition: color 0.3s ease;
+  width: 250px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #1B97D5;
+  border-radius: 8px;
+  z-index: -2;
+}
+button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #1577a6; /* cor 15% mais escura que #1B97D5 */
+  transition: width 0.3s ease;
+  border-radius: 8px;
+  z-index: -1;
+}
+button:hover::before {
+  width: 100%;
+}
+button:hover {
+  color: #FFF;
+  cursor: pointer;
+}
+
+
+button.menor {
+  margin-top: 25px;
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  background-color: #DC853D;
+  color: #FFF;
+  outline: none;
+  border: none;
+  width: 100px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+button.menor::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #DC853D;
+  border-radius: 8px;
+  z-index: -2;
+}
+button.menor::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #b86627; /* 15% mais escuro que #DC853D */
+  transition: width 0.3s ease;
+  border-radius: 8px;
+  z-index: -1;
+}
+button.menor:hover::before {
+  width: 100%;
+}
+button.menor:hover {
+  color: #fff;
+}
