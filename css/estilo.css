@@ -16,15 +16,14 @@
 
 .Logo {
     grid-area: Logo;
-    margin-left: 30%;
-    margin-top: 25px;
-    background-image: url(../img/logo3.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    position: fixed;
-    width: 40%;
+    width: 100%;
     height: auto;
+    background-image: url(../img/logo3.png);
+    aspect-ratio: 30 / 1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-top: 25px; 
 }
 
 .Pesquisa { grid-area: Pesquisa;
@@ -55,7 +54,7 @@ html, body , .container {
 }
 
 .container * {
-  border: 0px solid red;
+  border: 1px solid red;
   position: relative;
 }
 
@@ -78,33 +77,9 @@ html, body , .container {
   gap: 25px;
 }
 
-table {
-    width: 80%;
-    margin-left: 10%;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    border-collapse: separate;
-    border: 1px solid #000;
-    border-spacing: 10px 0;
-  }
-
-  thead th {
-    color: #1B97D5;
-    padding: 5px;
-    text-align: center;
-    border: 10px solid #000;
-    border-radius: 10px 10px 0px 0px;
-  }
-
-  tbody td {
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid #eee;
-  }
-
-  tbody tr:hover {
-    background-color: #efefef;
-  }
+tbody tr:hover {
+  background-color: #efefef;
+}
 
 p{ /* */
   align-items: center;
@@ -112,8 +87,14 @@ p{ /* */
   display: flex;
 }
 
-h1{
+h3{
     font-family: sans-serif;
+}
+
+.h3_desc{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
 }
 
 .box {
@@ -150,10 +131,6 @@ h1{
 
 .icone_clima2, .icone_clima3, .icone_clima4, .icone_clima4, .icone_clima5, .icone_clima6, .icone_clima7 {
   font-size: 40px; 
-}
-
-.info_temp2, .info_temp3, .info_temp4, .info_temp5, .info_temp6, .info_temp7 {
-  
 }
 
 .bloco_descricao {

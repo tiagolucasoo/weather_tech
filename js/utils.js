@@ -49,8 +49,39 @@ function validacao_clima(dadosClima) {
         default: return 'Clima desconhecido';
     }
 }
+function validarDia(codigo_semana){
+    switch (codigo_semana){
+        case 0: return 'Domingo';
+        case 1: return 'Segunda-Feira';
+        case 2: return 'Terça-Feira';
+        case 3: return 'Quarta-Feira';
+        case 4: return 'Quinta-Feira';
+        case 5: return 'Sexta-Feira';
+        case 6: return 'Sábado';
+        default: return 'Código Inválido';
+    }
+}
 function limparDados(){
     console.clear();
+
+    // Bloco 03 - Quinzenal
+    // for (let i = 1; i <= 15; i++) {
+    //   document.querySelector(`.g_data${i}`).innerText = ``;
+    //   document.querySelector(`.g_dia${i}`).innerText = ``;
+    //   document.querySelector(`.g_descricao${i}`).innerText = ``;
+    //   document.querySelector(`.g_minima${i}`).innerText = ``;
+    //   document.querySelector(`.g_maxima${i}`).innerText = ``;
+    //   document.querySelector(`.g_chuva${i}`).innerText = ``;
+    // }
+
+    // Bloco 02 - Semanal
+    for (let i = 2; i <= 7; i++) {
+      document.querySelector(`.icone_clima${i}`).innerHTML = ``;
+      document.querySelector(`.info_data${i}`).innerText = ``;
+      document.querySelector(`.info_clima${i}`).innerText = ``;
+      document.querySelector(`.info_temp${i}`).innerText = ``;
+      document.querySelector(`.info_chuva${i}`).innerText = ``;
+    }
 
     // Bloco 01 - Dia
     document.querySelector(".icone_clima").innerHTML = ``;
@@ -65,25 +96,9 @@ function limparDados(){
     document.querySelector(".info_minima").innerText = ``;
     document.querySelector(".info_maxima").innerText = ``;
 
-    // Bloco 03 - Quinzenal
-    for (let i = 1; i <= 15; i++) {
-      document.querySelector(`.g_data${i}`).innerText = ``;
-      document.querySelector(`.g_dia${i}`).innerText = ``;
-      document.querySelector(`.g_descricao${i}`).innerText = ``;
-      document.querySelector(`.g_minima${i}`).innerText = ``;
-      document.querySelector(`.g_maxima${i}`).innerText = ``;
-      document.querySelector(`.g_chuva${i}`).innerText = ``;
-    }
-
-    // Bloco 02 - Semanal
-    for (let i = 2; i <= 7; i++) {
-      document.querySelector(`.icone_clima${i}`).innerHTML = ``;
-      document.querySelector(`.info_data${i}`).innerText = ``;
-      document.querySelector(`.info_clima${i}`).innerText = ``;
-      document.querySelector(`.info_temp${i}`).innerText = ``;
-      document.querySelector(`.info_chuva${i}`).innerText = ``;
-    }
-
+    document.querySelector(".tr_geral_info00").innerHTML = ``;
+    document.querySelector(".h3_desc").innerText = ``;
+    document.querySelector(".erro").innerHTML = ``;
 
 }
 function linha_Html(ref) { // Função própria para criação das linhas/célular do html
@@ -91,3 +106,54 @@ function linha_Html(ref) { // Função própria para criação das linhas/célul
   td.innerHTML = ref ?? "N/A";
   return td;
 }
+function criarTabelaCabecalho() { // Clientes
+  const tr_geral_info00 = document.querySelector(".tr_geral_info00");
+
+  const h3 = document.querySelector(".h3_desc");
+  h3.innerText = "Descrição Completa - Próximos 15 Dias";
+
+  tr_geral_info00.innerHTML = "";
+
+  tr_geral_info00.appendChild(linha_Html(`<p class="cabecalho_data">Data</p>`)); //Cria o TR E O TD
+  tr_geral_info00.appendChild(linha_Html(`<p class="cabecalho_dia">Dia</p>`));
+  tr_geral_info00.appendChild(linha_Html(`<p class="cabecalho_desc">Descrição</p>`));
+  tr_geral_info00.appendChild(linha_Html(`<p class="cabecalho_min">Mínima</p>`));
+  tr_geral_info00.appendChild(linha_Html(`<p class="cabecalho_max">Máxima</p>`));
+  tr_geral_info00.appendChild(linha_Html(`<p class="cabecalho_chuva">Chuva / Precipitação</p>`));
+}
+
+// function criarTabela_Dados(dia2,dat2,min2,max2,cli2,chu2) { // Clientes
+//   const tabela_dados01 = document.querySelector(".tabela_dados01");
+//   tabela_dados01.innerHTML = "";
+
+//   tabela_dados01.appendChild(linha_Html(dia2));
+//   tabela_dados01.appendChild(linha_Html(dat2));
+//   tabela_dados01.appendChild(linha_Html(min2));
+//   tabela_dados01.appendChild(linha_Html(max2));
+//   tabela_dados01.appendChild(linha_Html(cli2));
+//   tabela_dados01.appendChild(linha_Html(chu2));
+// }
+
+function criarTabela_Dados(lista_dias, lista_climas) { // Clientes
+  const dados_tabela = document.querySelector("#dados_tabela");
+  dados_tabela.innerHTML = "";
+
+  for (let i = 0; i < 14; i++) {
+    const tr = document.createElement("tr");
+    tr.classList.add(`tabela_dados${i + 1}`);
+
+    tr.appendChild(linha_Html(lista_dias[i]));
+    tr.appendChild(linha_Html(lista_climas[i]));
+
+    dados_tabela.appendChild(tr);
+  }
+}
+
+{/* <tbody id="dados_tabela">
+            <tr>
+              <td><p class="g_data1"></td>
+              <td><p class="g_dia1"></td>
+              <td><p class="g_descricao1"></td>
+              <td><p class="g_minima1"></td>
+              <td><p class="g_maxima1"></td>
+              <td><p class="g_chuva1"></td> */}
