@@ -19,9 +19,14 @@ Para o tipo do tempo utilizar o weathercode - Baseado no WMO World Meteorologica
     80: "Pancadas fracas",
     81: "Pancadas moderadas",
     82: "Pancadas fortes",
+    85:
     95: "Tempestade com chuva leve/moderada",
     96: "Tempestade com granizo leve",
     99: "Tempestade com granizo forte"
 
-Nesse exato momento (09/06 - 00h15 está com o weathercode 3 (Nublado) - Fazer um script a parte apenas para isso junto aos icons)
+HTML: Index (192)
+JS: Script (281), View (198), Utils (159), Weathercode (122) | 760
+CSS: Estilo (159), Componentes (135) |294
+
+Total: 1246 Linhas
 

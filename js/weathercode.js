@@ -1,10 +1,10 @@
-function importIcons(){ // Importar Icones
+function Icones(){ 
     const fontAwesome = document.createElement("link");
     fontAwesome.rel = "stylesheet";
     fontAwesome.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css";
     document.head.appendChild(fontAwesome);
-}
-function defIcons(){ // Associa a classe com o chamado em HTML
+    console.log("Icones Importados ✓")
+
     customElements.define('cod-00', icone_0e1);
     customElements.define('cod-02', icone_2);
     customElements.define('cod-03', icone_3);
@@ -16,6 +16,7 @@ function defIcons(){ // Associa a classe com o chamado em HTML
     customElements.define('cod-95', icone_95_96e99);
     customElements.define('cod-att', icone_atualizar);
     customElements.define('cod-limpar', icone_limpar);
+    console.log("Icones Associados ✓")
 }
 class icone_0e1 extends HTMLElement { // 0 Céu Limpo & 1 Parcialmente Limpo
     connectedCallback() {
@@ -118,5 +119,6 @@ function gerarIconeClima(clima) {
     return '';
 }
 
-importIcons();
-defIcons();
+document.addEventListener("DOMContentLoaded", function(){
+    Icones();
+});

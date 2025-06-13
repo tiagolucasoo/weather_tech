@@ -54,7 +54,7 @@ html, body , .container {
 }
 
 .container * {
-  border: 1px solid red;
+  border: 0px solid red;
   position: relative;
 }
 

@@ -64,16 +64,6 @@ function validarDia(codigo_semana){
 function limparDados(){
     console.clear();
 
-    // Bloco 03 - Quinzenal
-    // for (let i = 1; i <= 15; i++) {
-    //   document.querySelector(`.g_data${i}`).innerText = ``;
-    //   document.querySelector(`.g_dia${i}`).innerText = ``;
-    //   document.querySelector(`.g_descricao${i}`).innerText = ``;
-    //   document.querySelector(`.g_minima${i}`).innerText = ``;
-    //   document.querySelector(`.g_maxima${i}`).innerText = ``;
-    //   document.querySelector(`.g_chuva${i}`).innerText = ``;
-    // }
-
     // Bloco 02 - Semanal
     for (let i = 2; i <= 7; i++) {
       document.querySelector(`.icone_clima${i}`).innerHTML = ``;
@@ -99,6 +89,11 @@ function limparDados(){
     document.querySelector(".tr_geral_info00").innerHTML = ``;
     document.querySelector(".h3_desc").innerText = ``;
     document.querySelector(".erro").innerHTML = ``;
+
+    // Bloco 03 - Quinzenal tabela_dados01
+     for (let i = 1; i <= 15; i++) {
+       document.querySelector(`.tabela_dados${i}`).innerText = ``;
+     }
 
 }
 function linha_Html(ref) { // Função própria para criação das linhas/célular do html
@@ -148,12 +143,3 @@ function criarTabela_Dados(lista_dias, lista_climas) { // Clientes
     dados_tabela.appendChild(tr);
   }
 }
-
-{/* <tbody id="dados_tabela">
-            <tr>
-              <td><p class="g_data1"></td>
-              <td><p class="g_dia1"></td>
-              <td><p class="g_descricao1"></td>
-              <td><p class="g_minima1"></td>
-              <td><p class="g_maxima1"></td>
-              <td><p class="g_chuva1"></td> */}

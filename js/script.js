@@ -94,16 +94,24 @@ function exibirErro() {
   document.querySelector(".erro").innerText = "Erro ao buscar dados.";
 }
 
-// Função principal
-function buscarInformacoes() {
-
+function pesquisar(){
   document.getElementById("buscar").addEventListener("click", async () => {
     const cidadeInput = document.querySelector(".inputCidade");
     const cidade = cidadeInput.value.trim();
     const { codigo_pais, nome_pais } = comboPais();
-    
+
     if (!validarEntrada(codigo_pais, nome_pais, cidade)) return;
+
     try {
+      await buscarInformacoes(codigo_pais, cidade, nome_pais);
+    } catch (error) {
+      exibirErro();
+    }
+  });
+}
+
+// Função principal
+async function buscarInformacoes(codigo_pais, cidade, nome_pais) {    
         const dadosCoord = await buscarCoordenadas(codigo_pais, cidade);
         if (!validarResultado(dadosCoord, cidade, nome_pais)) return;
 
@@ -242,6 +250,7 @@ function buscarInformacoes() {
         
         const lista_dias = [dia2, dia3, dia4, dia5, dia6, dia7, dia8, dia9, dia10, dia11, dia12, dia13, dia14, dia15];
         const lista_climas = [cli2, cli3, cli4, cli5, cli6, cli7, cli8, cli9, cli10, cli11, cli12, cli13, cli14, cli15];
+        
         criarTabelaCabecalho();
         criarTabela_Dados(lista_dias, lista_climas);
 
@@ -253,29 +262,9 @@ function buscarInformacoes() {
         exibir_dia06(dia6, min6, max6, cli6, cod6, chu6);
         exibir_dia07(dia7, min7, max7, cli7, cod7, chu7);
 
-        
-        //view_01(dat2, dia2, cli2, min2, max2, chu2, pre2);
-        // view_02(dat3, dia3, cli3, min3, max3, chu3, pre3);
-        // view_03(dat4, dia4, cli4, min4, max4, chu4, pre4);
-        // view_04(dat5, dia5, cli5, min5, max5, chu5, pre5);
-        // view_05(dat6, dia6, cli6, min6, max6, chu6, pre6);
-        // view_06(dat7, dia7, cli7, min7, max7, chu7, pre7);
-        // view_07(dat8, dia8, cli8, min8, max8, chu8, pre8);
-        // view_08(dat9, dia9, cli9, min9, max9, chu9, pre9);
-        // view_09(dat10, dia10, cli10, min10, max10, chu10, pre10);
-        // view_10(dat11, dia11, cli11, min11, max11, chu11, pre11);
-        // view_11(dat12, dia12, cli12, min12, max12, chu12, pre12);
-        // view_12(dat13, dia13, cli13, min13, max13, chu13, pre13);
-        // view_13(dat14, dia14, cli14, min14, max14, chu14, pre14);
-        // view_14(dat15, dia15, cli15, min15, max15, chu15, pre15);
-
         print2(latitude, longitude, dadosClima, dadosCompletos, cidade, nome_pais_api);
-
-        } catch (error) {
-          exibirErro();
-          console.error(error);}
-  });
 }
 
-// diaSemana();
-buscarInformacoes();
+document.addEventListener("DOMContentLoaded", function(){
+    pesquisar();
+});
