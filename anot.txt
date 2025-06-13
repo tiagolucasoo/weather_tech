@@ -26,7 +26,11 @@ Para o tipo do tempo utilizar o weathercode - Baseado no WMO World Meteorologica
 
 HTML: Index (192)
 JS: Script (281), View (198), Utils (159), Weathercode (122) | 760
-CSS: Estilo (159), Componentes (135) |294
-
+CSS: Estilo (159), Componentes (135) | 294
 Total: 1246 Linhas
+
+HTML: Index (192)
+JS: Script(185), View(65), Utils(103), Weathercode(124) | 412
+CSS: Estilo(159), Componentes(149) | 308
+Total: 912
 

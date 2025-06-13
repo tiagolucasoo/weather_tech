@@ -17,69 +17,49 @@ function exibirResultado(cidade, temperatura, vento, nome_pais_api, estado, clim
     document.querySelector(".info_minima").innerText = `Mínima: ${temp_minima}°C`;
     document.querySelector(".info_maxima").innerText = `Máxima: ${temp_maxima}°C`;
 }
+function criarTabela_Cabecalho() { // Clientes
+  const tr_geral_info00 = document.querySelector(".tr_geral_info00");
 
-function exibir_dia02(dia2, min2, max2, cli2, cod2, chu2){
-    const clima = cod2;
-    const icone = gerarIconeClima(clima);
-    document.querySelector(".icone_clima2").innerHTML = icone;
+  const h3 = document.querySelector(".h3_desc");
+  h3.innerText = "Descrição Completa - Próximos 15 Dias";
 
-    document.querySelector(".info_data2").innerText = `${dia2}`;
-    document.querySelector(".info_clima2").innerText = `${cli2}`;
-    document.querySelector(".info_temp2").innerText = `${min2}° / ${max2}°`;
-    document.querySelector(".info_chuva2").innerText = `Possibilidade de Chuva: ${chu2}%`;
+  tr_geral_info00.innerHTML = "";
+
+  tr_geral_info00.appendChild(linha_Html(`<p class="cabecalho_data">Data</p>`)); //Cria o TR E O TD
+  tr_geral_info00.appendChild(linha_Html(`<p class="cabecalho_desc">Descrição</p>`));
+  tr_geral_info00.appendChild(linha_Html(`<p class="cabecalho_min">Mínima</p>`));
+  tr_geral_info00.appendChild(linha_Html(`<p class="cabecalho_max">Máxima</p>`));
+  tr_geral_info00.appendChild(linha_Html(`<p class="cabecalho_chuva">Chance de Chuva</p>`));
+  tr_geral_info00.appendChild(linha_Html(`<p class="cabecalho_precipitacao">Precipitação</p>`));
 }
+function criarTabela_Dados(d_dias, d_clima, d_min, d_max, d_chuva, d_precipitacao) { // Clientes
+  const dados_tabela = document.querySelector("#dados_tabela");
+  dados_tabela.innerHTML = "";
 
-function exibir_dia03(dia3, min3, max3, cli3, cod3, chu3){
-    const clima = cod3;
-    const icone = gerarIconeClima(clima);
-    document.querySelector(".icone_clima3").innerHTML = icone;
+  for (let i = 0; i < 14; i++) {
+    const tr = document.createElement("tr");
+    tr.classList.add(`tabela_dados${i + 1}`);
 
-    document.querySelector(".info_data3").innerText = `${dia3}`;
-    document.querySelector(".info_clima3").innerText = `${cli3}`;
-    document.querySelector(".info_temp3").innerText = `${min3}° / ${max3}°`;
-    document.querySelector(".info_chuva3").innerText = `Possibilidade de Chuva: ${chu3}%`;
+    tr.appendChild(linha_Html(d_dias[i]));
+    tr.appendChild(linha_Html(d_clima[i]));
+    tr.appendChild(linha_Html(d_min[i] + "°"));
+    tr.appendChild(linha_Html(d_max[i] + "°"));
+    tr.appendChild(linha_Html(d_chuva[i] + "%"));
+    tr.appendChild(linha_Html(d_precipitacao[i] + " mm"));
+
+    dados_tabela.appendChild(tr);
+  }
 }
-
-function exibir_dia04(dia4, min4, max4, cli4, cod4, chu4){
-    const clima = cod4;
+function exibir_semana(i_dias, i_min, i_max, i_clima, i_chuva, i_cod) {
+  for (let i = 0; i < 6; i++){
+    const indice = i +2;
+    const clima = i_cod[i]
     const icone = gerarIconeClima(clima);
-    document.querySelector(".icone_clima4").innerHTML = icone;
 
-    document.querySelector(".info_data4").innerText = `${dia4}`;
-    document.querySelector(".info_clima4").innerText = `${cli4}`;
-    document.querySelector(".info_temp4").innerText = `${min4}° / ${max4}°`;
-    document.querySelector(".info_chuva4").innerText = `Possibilidade de Chuva: ${chu4}%`;
-}
-
-function exibir_dia05(dia5, min5, max5, cli5, cod5, chu5){
-    const clima = cod5;
-    const icone = gerarIconeClima(clima);
-    document.querySelector(".icone_clima5").innerHTML = icone;
-
-    document.querySelector(".info_data5").innerText = `${dia5}`;
-    document.querySelector(".info_clima5").innerText = `${cli5}`;
-    document.querySelector(".info_temp5").innerText = `${min5}° / ${max5}°`;
-    document.querySelector(".info_chuva5").innerText = `Possibilidade de Chuva: ${chu5}%`;
-}
-
-function exibir_dia06(dia6, min6, max6, cli6, cod6, chu6){
-    const clima = cod6;
-    const icone = gerarIconeClima(clima);
-    document.querySelector(".icone_clima6").innerHTML = icone;
-
-    document.querySelector(".info_data6").innerText = `${dia6}`;
-    document.querySelector(".info_clima6").innerText = `${cli6}`;
-    document.querySelector(".info_temp6").innerText = `${min6}° / ${max6}°`;
-    document.querySelector(".info_chuva6").innerText = `Possibilidade de Chuva: ${chu6}%`;
-}
-
-function exibir_dia07(dia7, min7, max7, cli7, cod7, chu7){
-    const clima = cod7;
-    const icone = gerarIconeClima(clima);
-    document.querySelector(".icone_clima7").innerHTML = icone;
-
-    document.querySelector(".info_data7").innerText = `${dia7}`;
-    document.querySelector(".info_clima7").innerText = `${cli7}`;
-    document.querySelector(".info_temp7").innerText = `${min7}° / ${max7}°`;
-    document.querySelector(".info_chuva7").innerText = `Possibilidade de Chuva: ${chu7}%`;
+    document.querySelector(`.icone_clima${indice}`).innerHTML = icone; //OK
+    document.querySelector(`.info_data${indice}`).innerText = i_dias[i]; //OK
+    document.querySelector(`.info_clima${indice}`).innerText = i_clima[i]; //OK
+    document.querySelector(`.info_temp${indice}`).innerText = `${i_min[i]}° / ${i_max[i]}`; //OK
+    document.querySelector(`.info_chuva${indice}`).innerText = `Possibilidade de Chuva: ${i_chuva[i]}%`; //OK
+  }
 }

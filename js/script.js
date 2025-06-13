@@ -90,10 +90,6 @@ function print2(latitude, longitude, dadosClima, dadosCompletos, cidade, nome_pa
 //   return dia_semana;
 // }
 
-function exibirErro() {
-  document.querySelector(".erro").innerText = "Erro ao buscar dados.";
-}
-
 function pesquisar(){
   document.getElementById("buscar").addEventListener("click", async () => {
     const cidadeInput = document.querySelector(".inputCidade");
@@ -103,9 +99,11 @@ function pesquisar(){
     if (!validarEntrada(codigo_pais, nome_pais, cidade)) return;
 
     try {
+      console.clear();
       await buscarInformacoes(codigo_pais, cidade, nome_pais);
     } catch (error) {
-      exibirErro();
+      document.querySelector(".erro").innerText = "Erro ao buscar dados.";
+      console.log(error);
     }
   });
 }
@@ -131,136 +129,53 @@ async function buscarInformacoes(codigo_pais, cidade, nome_pais) {
         const temp_maxima = dadosCompletos.daily.temperature_2m_max[0];
         const porc_chuva = dadosCompletos.daily.precipitation_probability_max[0]
 
-        const dia2 = retornar_data_futura(1);
-        const min2 = dadosCompletos.daily.temperature_2m_min[1];
-        const max2 = dadosCompletos.daily.temperature_2m_max[1];
-        const cli2 = validacao_clima({ current_weather: {weathercode: dadosCompletos.daily.weathercode[1]}});
-        const cod2 = dadosCompletos.daily.weathercode[1];
-        const chu2 = dadosCompletos.daily.precipitation_probability_max[1];
-        const pre2 = dadosCompletos.daily.precipitation_sum[1];
-
-        const dia3 = retornar_data_futura(2);
-        const min3 = dadosCompletos.daily.temperature_2m_min[2];
-        const max3 = dadosCompletos.daily.temperature_2m_max[2];
-        const cli3 = validacao_clima({ current_weather: {weathercode: dadosCompletos.daily.weathercode[2]}});
-        const cod3 = dadosCompletos.daily.weathercode[2];
-        const chu3 = dadosCompletos.daily.precipitation_probability_max[2];
-        const pre3 = dadosCompletos.daily.precipitation_sum[2];
-
-        const dia4 = retornar_data_futura(3);
-        const min4 = dadosCompletos.daily.temperature_2m_min[3];
-        const max4 = dadosCompletos.daily.temperature_2m_max[3];
-        const cli4 = validacao_clima({ current_weather: {weathercode: dadosCompletos.daily.weathercode[3]}});
-        const cod4 = dadosCompletos.daily.weathercode[3];
-        const chu4 = dadosCompletos.daily.precipitation_probability_max[3];
-        const pre4 = dadosCompletos.daily.precipitation_sum[3];
-
-        const dia5 = retornar_data_futura(4);
-        const min5 = dadosCompletos.daily.temperature_2m_min[4];
-        const max5 = dadosCompletos.daily.temperature_2m_max[4];
-        const cli5 = validacao_clima({ current_weather: {weathercode: dadosCompletos.daily.weathercode[4]}});
-        const cod5 = dadosCompletos.daily.weathercode[4];
-        const chu5 = dadosCompletos.daily.precipitation_probability_max[4];
-        const pre5 = dadosCompletos.daily.precipitation_sum[4];
-
-        const dia6 = retornar_data_futura(5);
-        const min6 = dadosCompletos.daily.temperature_2m_min[5];
-        const max6 = dadosCompletos.daily.temperature_2m_max[5];
-        const cli6 = validacao_clima({ current_weather: {weathercode: dadosCompletos.daily.weathercode[5]}});
-        const cod6 = dadosCompletos.daily.weathercode[5];
-        const chu6 = dadosCompletos.daily.precipitation_probability_max[5];
-        const pre6 = dadosCompletos.daily.precipitation_sum[5];
-
-        const dia7 = retornar_data_futura(6);
-        const min7 = dadosCompletos.daily.temperature_2m_min[6];
-        const max7 = dadosCompletos.daily.temperature_2m_max[6];
-        const cli7 = validacao_clima({ current_weather: {weathercode: dadosCompletos.daily.weathercode[6]}});
-        const cod7 = dadosCompletos.daily.weathercode[6];
-        const chu7 = dadosCompletos.daily.precipitation_probability_max[6];
-        const pre7 = dadosCompletos.daily.precipitation_sum[7];
-
-        const dat2 = dadosCompletos.daily.time[1];
-        const dat3 = dadosCompletos.daily.time[2];
-        const dat4 = dadosCompletos.daily.time[3];
-        const dat5 = dadosCompletos.daily.time[4];
-        const dat6 = dadosCompletos.daily.time[5];
-        const dat7 = dadosCompletos.daily.time[6];
-        const dat8 = dadosCompletos.daily.time[7];
-        const dat9 = dadosCompletos.daily.time[8];
-        const dat10 = dadosCompletos.daily.time[9];
-        const dat11 = dadosCompletos.daily.time[10];
-        const dat12 = dadosCompletos.daily.time[11];
-        const dat13 = dadosCompletos.daily.time[12];
-        const dat14 = dadosCompletos.daily.time[13];
-        const dat15 = dadosCompletos.daily.time[14];
-
-        const pre8 = dadosCompletos.daily.precipitation_sum[7];
-        const pre9 = dadosCompletos.daily.precipitation_sum[8];
-        const pre10 = dadosCompletos.daily.precipitation_sum[9];
-        const pre11 = dadosCompletos.daily.precipitation_sum[10];
-        const pre12 = dadosCompletos.daily.precipitation_sum[11];
-        const pre13 = dadosCompletos.daily.precipitation_sum[12];
-        const pre14 = dadosCompletos.daily.precipitation_sum[13];
-        const pre15 = dadosCompletos.daily.precipitation_sum[14];
-
-        const min8 = dadosCompletos.daily.temperature_2m_min[7];
-        const min9 = dadosCompletos.daily.temperature_2m_min[8];
-        const min10 = dadosCompletos.daily.temperature_2m_min[9];
-        const min11 = dadosCompletos.daily.temperature_2m_min[10];
-        const min12 = dadosCompletos.daily.temperature_2m_min[11];
-        const min13 = dadosCompletos.daily.temperature_2m_min[12];
-        const min14 = dadosCompletos.daily.temperature_2m_min[13];
-        const min15 = dadosCompletos.daily.temperature_2m_min[14];
-
-        const max8 = dadosCompletos.daily.temperature_2m_max[7];
-        const max9 = dadosCompletos.daily.temperature_2m_max[8];
-        const max10 = dadosCompletos.daily.temperature_2m_max[9];
-        const max11 = dadosCompletos.daily.temperature_2m_max[10];
-        const max12 = dadosCompletos.daily.temperature_2m_max[11];
-        const max13 = dadosCompletos.daily.temperature_2m_max[12];
-        const max14 = dadosCompletos.daily.temperature_2m_max[13];
-        const max15 = dadosCompletos.daily.temperature_2m_max[14];
-
-        const dia8 = retornar_data_futura(7);
-        const dia9 = retornar_data_futura(8);
-        const dia10 = retornar_data_futura(9);
-        const dia11 = retornar_data_futura(10);
-        const dia12 = retornar_data_futura(11);
-        const dia13 = retornar_data_futura(12);
-        const dia14 = retornar_data_futura(13);
-        const dia15 = retornar_data_futura(14);
-
-        const cli8 = validacao_clima({ current_weather: {weathercode: dadosCompletos.daily.weathercode[7]}});
-        const cli9 = validacao_clima({ current_weather: {weathercode: dadosCompletos.daily.weathercode[8]}});
-        const cli10 = validacao_clima({ current_weather: {weathercode: dadosCompletos.daily.weathercode[9]}});
-        const cli11 = validacao_clima({ current_weather: {weathercode: dadosCompletos.daily.weathercode[10]}});
-        const cli12 = validacao_clima({ current_weather: {weathercode: dadosCompletos.daily.weathercode[11]}});
-        const cli13 = validacao_clima({ current_weather: {weathercode: dadosCompletos.daily.weathercode[12]}});
-        const cli14 = validacao_clima({ current_weather: {weathercode: dadosCompletos.daily.weathercode[13]}});
-        const cli15 = validacao_clima({ current_weather: {weathercode: dadosCompletos.daily.weathercode[14]}});
-
-        const chu8 = dadosCompletos.daily.precipitation_probability_max[7];
-        const chu9 = dadosCompletos.daily.precipitation_probability_max[8];
-        const chu10 = dadosCompletos.daily.precipitation_probability_max[9];
-        const chu11 = dadosCompletos.daily.precipitation_probability_max[10];
-        const chu12 = dadosCompletos.daily.precipitation_probability_max[11];
-        const chu13 = dadosCompletos.daily.precipitation_probability_max[12];
-        const chu14 = dadosCompletos.daily.precipitation_probability_max[13];
-        const chu15 = dadosCompletos.daily.precipitation_probability_max[14];
+        // const cod7 = dadosCompletos.daily.weathercode[6];
+        // const chu7 = dadosCompletos.daily.precipitation_probability_max[6];
+        // const pre8 = dadosCompletos.daily.precipitation_sum[7];
+        // const min8 = dadosCompletos.daily.temperature_2m_min[7];
+        // const max8 = dadosCompletos.daily.temperature_2m_max[7];
+        // const dia8 = retornar_data_futura(7);
+        // const cli8 = validacao_clima({ current_weather: {weathercode: dadosCompletos.daily.weathercode[7]}});
         
-        const lista_dias = [dia2, dia3, dia4, dia5, dia6, dia7, dia8, dia9, dia10, dia11, dia12, dia13, dia14, dia15];
-        const lista_climas = [cli2, cli3, cli4, cli5, cli6, cli7, cli8, cli9, cli10, cli11, cli12, cli13, cli14, cli15];
+        // Construtor - Dados Quinzenal (Tabela)
+        const d_chuva = []
+        const d_clima = []
+        const d_dias = []
+        const d_min = []
+        const d_max = []
+        const d_precipitacao = []
+
+        for (let i = 1; i <= 14; i++) {
+          d_chuva.push(dadosCompletos.daily.precipitation_probability_max[i]);
+          d_clima.push(validacao_clima({ current_weather: {weathercode: dadosCompletos.daily.weathercode[i]}}));
+          d_dias.push(retornar_data_futura(i));
+          d_min.push(dadosCompletos.daily.temperature_2m_min[i]);
+          d_max.push(dadosCompletos.daily.temperature_2m_max[i]);
+          d_precipitacao.push(dadosCompletos.daily.precipitation_sum[i]);
+        }
         
-        criarTabelaCabecalho();
-        criarTabela_Dados(lista_dias, lista_climas);
+        // Construtor - Dados Semana
+        const i_chuva = []
+        const i_clima = []
+        const i_dias = []
+        const i_min = []
+        const i_max = []
+        const i_cod = []
+
+        for (let i = 1; i <= 7; i++) {
+          i_chuva.push(dadosCompletos.daily.precipitation_probability_max[i]);
+          i_clima.push(validacao_clima({ current_weather: {weathercode: dadosCompletos.daily.weathercode[i]}}));
+          i_dias.push(retornar_data_futura(i));
+          i_min.push(dadosCompletos.daily.temperature_2m_min[i]);
+          i_max.push(dadosCompletos.daily.temperature_2m_max[i]);
+          i_cod.push(dadosCompletos.daily.weathercode[i]);
+        }
 
         exibirResultado(cidade, temperatura, vento, nome_pais_api, estado, clima, climaDescricao, temp_minima, temp_maxima, porc_chuva, precipitacao, cod1);
-        exibir_dia02(dia2, min2, max2, cli2, cod2, chu2);
-        exibir_dia03(dia3, min3, max3, cli3, cod3, chu3);
-        exibir_dia04(dia4, min4, max4, cli4, cod4, chu4);
-        exibir_dia05(dia5, min5, max5, cli5, cod5, chu5);
-        exibir_dia06(dia6, min6, max6, cli6, cod6, chu6);
-        exibir_dia07(dia7, min7, max7, cli7, cod7, chu7);
+        exibir_semana(i_dias, i_min, i_max, i_clima, i_chuva, i_cod);
+
+        criarTabela_Cabecalho();
+        criarTabela_Dados(d_dias, d_clima, d_min, d_max, d_chuva, d_precipitacao);
 
         print2(latitude, longitude, dadosClima, dadosCompletos, cidade, nome_pais_api);
 }
