@@ -6,6 +6,7 @@
   <title>Weather Tech - Previsão de Tempo</title>
   <link rel="stylesheet" href="css/estilo.css"> <!-- Folha Principal | Posicionamento, classes e afins -->
   <link rel="stylesheet" href="css/componentes.css"> <!-- Componentes imutáveis | Buttons, Select, Input... -->
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
   <div class="container">
@@ -32,9 +33,11 @@
       </select>
 
       <input class="inputCidade" placeholder="Qual a cidade?" />
-      <button type="submit" id="buscar">Pesquisar</button>
-      <!-- <button type="submit" class="menor" id=""><cod-att></cod-att></button> -->
-      <button onclick="limparDados()" class="menor"><cod-limpar></cod-limpar></button>
+      <div class="posicao_botoes">
+        <button type="submit" id="buscar">Pesquisar</button>
+        <!-- <button type="submit" class="menor" id=""><cod-att></cod-att></button> -->
+        <button onclick="limparDados()" class="menor"><cod-limpar></cod-limpar></button>
+      </div>
     </div>
 
     <!-- HTML, JS OK | Finalizar CSS -->

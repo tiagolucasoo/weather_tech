@@ -129,6 +129,8 @@ async function buscarInformacoes(codigo_pais, cidade, nome_pais) {
         const temp_maxima = dadosCompletos.daily.temperature_2m_max[0];
         const porc_chuva = dadosCompletos.daily.precipitation_probability_max[0]
 
+        console.log(dadosClima.current_weather);
+
         // const cod7 = dadosCompletos.daily.weathercode[6];
         // const chu7 = dadosCompletos.daily.precipitation_probability_max[6];
         // const pre8 = dadosCompletos.daily.precipitation_sum[7];
