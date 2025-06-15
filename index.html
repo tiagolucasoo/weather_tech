@@ -7,13 +7,11 @@
   <link rel="stylesheet" href="css/estilo.css"> <!-- Folha Principal | Posicionamento, classes e afins -->
   <link rel="stylesheet" href="css/componentes.css"> <!-- Componentes imutáveis | Buttons, Select, Input... -->
   <link rel="stylesheet" href="css/responsive.css">
+  
 </head>
 <body>
   <div class="container">
-    <div class="Logo">
-
-    </div>
-
+    <div class="Logo"></div>
     <!-- Select, Input e Button (HTML, CSS, JS - OK)-->
     <!-- Deixar Responsivo -->
     <div class="Pesquisa">
@@ -36,7 +34,8 @@
       <div class="posicao_botoes">
         <button type="submit" id="buscar">Pesquisar</button>
         <!-- <button type="submit" class="menor" id=""><cod-att></cod-att></button> -->
-        <button onclick="limparDados()" class="menor"><cod-limpar></cod-limpar></button>
+        <button id="gps" class="menor" title="Buscar Localização"><cod-gps></cod-gps></button>
+        <button onclick="limparDados()" class="menor" title="Limpar Dados"><cod-limpar></cod-limpar></button>
       </div>
     </div>
 
@@ -180,14 +179,13 @@
     </div>
 
     <div class="Rodape">
-      <p>2025&nbsp;&nbsp;•&nbsp;&nbsp;Desenvolvido por&nbsp;<b>Tiago Lucas.</b>&nbsp;&nbsp;Acesse meu&nbsp;
-        <a href="https://www.github.com/tiagolucasoo">GitHub</a>&nbsp;ou se conecte comigo no&nbsp;
-        <a href="https://linkedin.com/in/tiagoolucas">LinkedIn.</a></p></div>
+      <h4>2025 | Desenvolvido por Tiago Lucas - Acesse meu GitHub ou LinkedIn</h4>
+    </div>
   </div>
 
   <!-- Importação | Se necessário separar um arquivo próprio para o Head do essencial-->
   <script src="js/script.js"></script> <!-- Código Principal-->
-  <script src="js/weathercode.js"></script> <!-- Icones e Criação das TAG's dos Icones -->
+  <script src="js/get.js"></script> <!-- Icones e Criação das TAG's dos Icones -->
   <script src="js/utils.js"></script> <!-- Validações e Formatações -->
   <script src="js/view.js"></script>
 

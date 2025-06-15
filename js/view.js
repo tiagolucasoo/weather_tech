@@ -17,11 +17,11 @@ function exibirResultado(cidade, temperatura, vento, nome_pais_api, estado, clim
     document.querySelector(".info_minima").innerText = `Mínima: ${temp_minima}°C`;
     document.querySelector(".info_maxima").innerText = `Máxima: ${temp_maxima}°C`;
 }
-function criarTabela_Cabecalho() { // Clientes
+function criarTabela_Cabecalho() { 
   const tr_geral_info00 = document.querySelector(".tr_geral_info00");
 
   const h3 = document.querySelector(".h3_desc");
-  h3.innerText = "Descrição Completa - Próximos 15 Dias";
+  h3.innerText = "Descrição Completa - Próximos 14 Dias";
 
   tr_geral_info00.innerHTML = "";
 
@@ -29,10 +29,10 @@ function criarTabela_Cabecalho() { // Clientes
   tr_geral_info00.appendChild(linha_Html(`<p class="cabecalho_desc">Descrição</p>`));
   tr_geral_info00.appendChild(linha_Html(`<p class="cabecalho_min">Mínima</p>`));
   tr_geral_info00.appendChild(linha_Html(`<p class="cabecalho_max">Máxima</p>`));
-  tr_geral_info00.appendChild(linha_Html(`<p class="cabecalho_chuva">Chance de Chuva</p>`));
-  tr_geral_info00.appendChild(linha_Html(`<p class="cabecalho_precipitacao">Precipitação</p>`));
+  tr_geral_info00.appendChild(linha_Html(`<p class="cabecalho_chuva">Chuva</p>`));
+  tr_geral_info00.appendChild(linha_Html(`<p class="cabecalho_precipitacao">Prec.</p>`));
 }
-function criarTabela_Dados(d_dias, d_clima, d_min, d_max, d_chuva, d_precipitacao) { // Clientes
+function criarTabela_Dados(d_dias, d_clima, d_min, d_max, d_chuva, d_precipitacao) {
   const dados_tabela = document.querySelector("#dados_tabela");
   dados_tabela.innerHTML = "";
 
@@ -60,6 +60,6 @@ function exibir_semana(i_dias, i_min, i_max, i_clima, i_chuva, i_cod) {
     document.querySelector(`.info_data${indice}`).innerText = i_dias[i]; //OK
     document.querySelector(`.info_clima${indice}`).innerText = i_clima[i]; //OK
     document.querySelector(`.info_temp${indice}`).innerText = `${i_min[i]}° / ${i_max[i]}`; //OK
-    document.querySelector(`.info_chuva${indice}`).innerText = `Possibilidade de Chuva: ${i_chuva[i]}%`; //OK
+    document.querySelector(`.info_chuva${indice}`).innerText = `Chuva: ${i_chuva[i]}%`; //OK
   }
 }

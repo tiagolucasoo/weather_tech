@@ -34,3 +34,7 @@ JS: Script(185), View(65), Utils(103), Weathercode(124) | 412
 CSS: Estilo(159), Componentes(149) | 308
 Total: 912
 
+Geral OK
+Criar Função para pegar a localização
+Criar Função para buscar dados da cidade pelo appnomation
+Fazer validação de gps
