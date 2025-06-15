@@ -45,7 +45,17 @@ function pesquisar(){
 function buscaAutomatica(){
   document.getElementById("gps").addEventListener("click", async () => {
     try {
-       const { latitude, longitude } = await gps_localizacao();
+      document.querySelector(".erro").innerText = "";
+      Swal.fire({
+            icon: 'info',
+            title: 'Um momento',
+            timer: 5000,
+            timerProgressBar: true,
+            text: 'Estamos carregando as informações de localização!',
+            showConfirmButton: false,
+        });
+
+      const { latitude, longitude } = await gps_localizacao();
 
       // Teste RJ - const latitude = -22.9068;
       // Teste RJ -const longitude = -43.1729;

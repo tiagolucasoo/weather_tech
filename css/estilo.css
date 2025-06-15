@@ -98,11 +98,17 @@ h3{
 }
 
 .box {
-  width: 31%;
-  height: 200px;
+  width: 25%;
+  height: auto;
+  padding: 10px;
+  border-radius: 10px;
   text-align: center;
   font-family: sans-serif;
   justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.box:hover{
+  cursor: pointer;
 }
 
 .info_data2, .info_data3, .info_data4, .info_data5, .info_data6, .info_data7 {
@@ -145,15 +151,9 @@ h3{
   max-width: 100%;
 }
 
-.container1{
-  width: 100%;
+.container1, .container2{
+  width: 90%;
   display: flex;
-  gap: 5px;
-  margin-top: 10px;
-}
-
-.container2 {
-  display: flex;
-  gap: 5px;
-  margin-top: 10px;
+  justify-content: space-between;
+  margin-top: 20px;
 }

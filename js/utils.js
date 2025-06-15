@@ -84,6 +84,7 @@ function validarDia(codigo_semana){
 
 // 2) Limpar Campos
 function limparDados(){
+    window.scrollTo({top: 0,behavior: 'smooth'});
     console.clear();
 
     // Bloco 02 - Semanal
