@@ -1,22 +1,41 @@
 //  utils.js    Arquivo separado para validações, formatações e funções auxiliares
 
 // 1) Validação
-function validarEntrada(codigo_pais, nome_pais, cidade) { 
-  if (codigo_pais === "00") {
-    alert("Você não selecionou um país. Por favor, escolha uma opção e tente novamente.");
-    return false;
-  }
+function validarEntrada(codigo_pais, nome_pais, cidade) {
+    if (codigo_pais === "00") {
+        Swal.fire({
+            icon: 'error', // Ícone de aviso
+            title: 'Atenção!',
+            text: 'Você não selecionou um país. Por favor, escolha uma opção na lista',
+            showConfirmButton: true,
+            confirmButtonText: 'Entendi',
+        });
+        return false; // A lógica de retorno continua a mesma
+    }
 
-  if (cidade.length === 0) {
-    alert(`Você selecionou o país ${nome_pais}, mas não informou o nome da cidade. Por favor, preencha esse campo.`);
-    return false;
-  }
+    if (cidade.length === 0) {
+        // SUBSTITUÍDO: O segundo alert()
+        Swal.fire({
+            icon: 'warning',
+            title: 'Campo Obrigatório',
+            text: `Você selecionou o país ${nome_pais}, mas não informou o nome da cidade!`,
+            confirmButtonText: 'OK',
+        });
+        return false;
+    }
 
-  return true;
+    // Se passou por todas as validações, retorna true
+    return true;
 }
+
 function validarResultado(data1, cidade, nome_pais) { 
   if (!data1.results || data1.results.length === 0) {
-    alert(`Não conseguimos encontrar a cidade "${cidade}" no país ${nome_pais}. Verifique se o nome está correto.`);
+    Swal.fire({
+            icon: 'error',
+            title: 'Campo Obrigatório',
+            text: `Não conseguimos encontrar a cidade "${cidade}" no país ${nome_pais}. Verifique se o nome está correto ou Utilize o Botão de Localização Automática!`,
+            confirmButtonText: 'OK',
+        });
     return false;
   }
 
@@ -282,9 +301,6 @@ function gerarIconeClima(clima) {
         if (clima === 95 || clima === 96 || clima === 99) return `<cod-95></cod-95>`;
         return '';
 }
-
-// Testes
-
 
 // Inicializador
 document.addEventListener("DOMContentLoaded", function(){
