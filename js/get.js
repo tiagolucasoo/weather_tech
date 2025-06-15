@@ -36,13 +36,11 @@ function gps_localizacao() {
           resolve({ latitude, longitude });
         },
         (error) => {
-          alert("Erro ao obter localização!");
           console.error(`Erro ao obter localização: ${error.message}`);
           reject(error);
         }
       );
     } else {
-      alert("Geolocalização não suportada, tente manualmente!");
       console.log("Geolocalização não é suportada pelo seu navegador.");
       reject(new Error("Geolocalização não suportada"));
     }
@@ -75,7 +73,7 @@ async function localizacao_gps(latitude_gps, longitude_gps) {
   }
 }
 
-(async () => {
+async function gps_permissao() {
   try {
     const { latitude, longitude } = await gps_localizacao();
     const resultado = await localizacao_gps(latitude, longitude);
@@ -84,5 +82,4 @@ async function localizacao_gps(latitude_gps, longitude_gps) {
   } catch (error) {
     console.error("Erro ao obter localização ou buscar nome da cidade:", error);
   }
-})();
-
+}

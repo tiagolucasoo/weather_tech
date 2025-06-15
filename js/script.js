@@ -45,6 +45,7 @@ function pesquisar(){
 function buscaAutomatica(){
   document.getElementById("gps").addEventListener("click", async () => {
     try {
+      gps_permissao();
       document.querySelector(".erro").innerText = "";
       Swal.fire({
             icon: 'info',

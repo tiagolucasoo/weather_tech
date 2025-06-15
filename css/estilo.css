@@ -133,10 +133,12 @@ h3{
 
 .icone_clima{
   font-size: 80px;
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
 }
 
 .icone_clima2, .icone_clima3, .icone_clima4, .icone_clima4, .icone_clima5, .icone_clima6, .icone_clima7 {
-  font-size: 40px; 
+  font-size: 40px;
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
 }
 
 .bloco_descricao {
