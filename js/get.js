@@ -16,6 +16,15 @@ async function Previsao_Atual(latitude, longitude) {
   return data;
 }
 
+async function Previsao_Dia(latitude, longitude) {
+  const hoje = dataAtual();
+  const amanha = proximosDias(1);
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,precipitation,weathercode,windspeed_10m&current_weather=true&timezone=auto&start_date=${hoje}&end_date=${amanha}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+}
+
 async function Previsao_Completa(latitude, longitude) {
   const hoje = dataAtual();
   const next_days = proximosDias(14);

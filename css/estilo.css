@@ -43,14 +43,28 @@ margin-right: 10px;
 .Next_Days_2 {
   grid-area: Next_Days_2;}
 
-.Rodape { grid-area: Rodape;
-display: flex;
-justify-content: center;}
+.rodape {
+  grid-area: Rodape;
+  background: linear-gradient(to right, #ececec, #f9f9f9);
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 2px solid #ccc;
+  font-family: 'Segoe UI', sans-serif;
+}
 
+.rodape h4 {
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: #333;
+}
+.rodape strong {
+  color: #DC853D;
+}
 
 html, body , .container {
   height: 100%;
   margin: 0;
+  font-family: sans-serif;
 }
 
 .container * {
@@ -70,45 +84,53 @@ html, body , .container {
   justify-content: center;
 }*/
 
-.info_loc{
-  display: flex;
+.conf_pos1 {
+    display: flex;
+    width: 80%;
+    margin-left: 10%;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+.conf_pos2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    gap: 10px;
+}
+.conf_pos2 h1, .conf_pos2 h2, .conf_pos2 h3 {
+  margin: 0;
+  align-items: center;
   justify-content: center;
-  justify-items: center;
-  gap: 25px;
+  display: flex;
 }
 
 tbody tr:hover {
   background-color: #efefef;
 }
 
-p{ /* */
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-
-h3{
-    font-family: sans-serif;
-}
-
-.h3_desc{
-  display: flex;
-  justify-content: center;
-  justify-items: center;
-}
 
 .box {
   width: 25%;
   height: auto;
-  padding: 10px;
   border-radius: 10px;
   text-align: center;
   font-family: sans-serif;
-  justify-content: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: padding 0.2s ease, box-shadow 0.2s ease;
 }
 .box:hover{
   cursor: pointer;
+}
+.box:empty {
+  box-shadow: none;
+  padding: 0;
+}
+.box.has-content {
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .info_data2, .info_data3, .info_data4, .info_data5, .info_data6, .info_data7 {
@@ -120,7 +142,7 @@ h3{
 .info_clima2, .info_clima3, .info_clima4, .info_clima5, .info_clima6, .info_clima7{
   width: 100%;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 15px;
   color: #000;
 }
 
@@ -128,11 +150,11 @@ h3{
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px; 
 }
 
 .icone_clima{
-  font-size: 80px;
+  font-size: 100px;
+  height: min-content;
   filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
 }
 
@@ -141,12 +163,16 @@ h3{
   filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
 }
 
-.bloco_descricao {
-  margin-top: 5px;
+.info_clima{
+  height: min-content;
 }
-
-.info_clima2, .info_clima3, .info_clima4, .info_clima5, .info_clima6, .info_clima7 {
-  font-size: 15px;
+.info_min_max{
+  width: 100%;
+  height: min-content;
+}
+.info_temperatura{
+  width: 100%;
+  height: min-content;
 }
 
 .Next_Days_1{

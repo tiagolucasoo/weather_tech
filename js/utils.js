@@ -27,7 +27,6 @@ function validarEntrada(codigo_pais, nome_pais, cidade) {
     // Se passou por todas as validações, retorna true
     return true;
 }
-
 function validarResultado(data1, cidade, nome_pais) { 
   if (!data1.results || data1.results.length === 0) {
     Swal.fire({
@@ -82,11 +81,20 @@ function validarDia(codigo_semana){
     }
 }
 
+function limparBox() {
+  const boxes = document.querySelectorAll('.box');
+  boxes.forEach(box => {
+    box.classList.remove('box');
+  });
+}
+
 // 2) Limpar Campos
 function limparDados(){
     window.scrollTo({top: 0,behavior: 'smooth'});
     console.clear();
 
+    limparBox();
+    
     // Bloco 02 - Semanal
     for (let i = 2; i <= 7; i++) {
       document.querySelector(`.icone_clima${i}`).innerHTML = ``;
@@ -98,16 +106,17 @@ function limparDados(){
 
     // Bloco 01 - Dia
     document.querySelector(".icone_clima").innerHTML = ``;
-    document.querySelector(".info_cidade").innerText = ``;
-    document.querySelector(".info_pais").innerText = ``;
-    document.querySelector(".info_estado").innerText = ``;
+    document.querySelector(".info_localizacao").innerText = ``;
+
     document.querySelector(".info_temperatura").innerText = ``;
     document.querySelector(".info_clima").innerText = ``;
-    document.querySelector(".info_vento").innerText = ``;
-    document.querySelector(".info_chuva").innerText = ``;
-    document.querySelector(".info_precipitacao").innerText = ``;
-    document.querySelector(".info_minima").innerText = ``;
-    document.querySelector(".info_maxima").innerText = ``;
+    document.querySelector(".info_vento1").innerText = ``;
+    document.querySelector(".info_vento2").innerText = ``;
+    document.querySelector(".info_chuva1").innerText = ``;
+    document.querySelector(".info_chuva22").innerText = ``;
+    document.querySelector(".info_precipitacao1").innerText = ``;
+    document.querySelector(".info_precipitacao2").innerText = ``;
+    document.querySelector(".info_min_max").innerText = ``;
 
     document.querySelector(".tr_geral_info00").innerHTML = ``;
     document.querySelector(".h3_desc").innerText = ``;
@@ -168,7 +177,7 @@ function comboPais() {
 
 // 6) Definição de Icones e Validação do Clima (Weathercode)
 function Icones(){ 
-    const {icone_0e1,icone_2,icone_3,icone_45e48,icone_51_53e55,icone_61_63e65,icone_71_73e75,icone_80_81e82,icone_95_96e99,icone_atualizar,icone_limpar, icone_local} = associacaoClasse()
+    const { icone_git, icone_linked, icone_0e1,icone_2,icone_3,icone_45e48,icone_51_53e55,icone_61_63e65,icone_71_73e75,icone_80_81e82,icone_95_96e99,icone_atualizar,icone_limpar, icone_local} = associacaoClasse()
 
     const fontAwesome = document.createElement("link");
     fontAwesome.rel = "stylesheet";
@@ -185,12 +194,32 @@ function Icones(){
     customElements.define('cod-71', icone_71_73e75);
     customElements.define('cod-80', icone_80_81e82);
     customElements.define('cod-95', icone_95_96e99);
+
     customElements.define('cod-att', icone_atualizar);
     customElements.define('cod-limpar', icone_limpar);
     customElements.define('cod-gps', icone_local);
+    customElements.define('cod-git', icone_git);
+    customElements.define('cod-lin', icone_linked);
+
     console.log("Icones Associados ✓")
 }
 function associacaoClasse(){
+    class icone_git extends HTMLElement { 
+        connectedCallback() {
+            this.innerHTML = `
+                <i class="fab fa-github" aria-hidden="true" style="color: #fff"></i>
+                `;
+            this.style.cursor = "pointer";
+        }
+    }
+    class icone_linked extends HTMLElement { 
+        connectedCallback() {
+            this.innerHTML = `
+                <i class="fab fa-linkedin" aria-hidden="true" style="color: #fff"></i>
+                `;
+            this.style.cursor = "pointer";
+        }
+    }
     class icone_0e1 extends HTMLElement { // 0 Céu Limpo & 1 Parcialmente Limpo
         connectedCallback() {
             this.innerHTML = `
@@ -288,7 +317,7 @@ function associacaoClasse(){
             this.style.cursor = "pointer";
         }
     }
-    return { icone_0e1, icone_2, icone_3, icone_45e48, icone_51_53e55, icone_61_63e65, icone_71_73e75, icone_80_81e82, icone_95_96e99, icone_atualizar, icone_limpar, icone_local }
+    return { icone_git, icone_linked, icone_0e1, icone_2, icone_3, icone_45e48, icone_51_53e55, icone_61_63e65, icone_71_73e75, icone_80_81e82, icone_95_96e99, icone_atualizar, icone_limpar, icone_local }
 }
 function gerarIconeClima(clima) {
         if (clima === 0 || clima === 1) return `<cod-00></cod-00>`;
@@ -303,7 +332,38 @@ function gerarIconeClima(clima) {
         return '';
 }
 
+// 7) Auxiliar - Hora
+function horario() {
+  const agora = new Date();
+  const horas = String(agora.getHours()).padStart(2, '0');
+  const minutos = String(agora.getMinutes()).padStart(2, '0');
+  return `${horas}:${minutos}`;
+}
+function horaAtual() {
+  const agora = new Date();
+  return agora.getHours();
+}
+
+// 8) Validação de dados pela Hora
+function validarHorarioChuva(Info_Previsao_Hora){
+  const hora = horaAtual();
+  const chuva = Info_Previsao_Hora.hourly.precipitation[hora];
+  return chuva;
+}
+function validarHorarioClima(Info_Previsao_Hora){
+  const hora = horaAtual();
+  const clima = Info_Previsao_Hora.hourly.weathercode[hora];
+  return clima;
+}
+function validarHorarioPrecipitacao(Info_Previsao_Hora){
+  const hora = horaAtual();
+  const prec = Info_Previsao_Hora.hourly.precipitation[hora];
+  return prec;
+}
+
 // Inicializador
 document.addEventListener("DOMContentLoaded", function(){
     Icones();
+    console.log(horario());
+    console.log(horaAtual());
 });

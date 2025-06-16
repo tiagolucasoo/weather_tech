@@ -1,7 +1,7 @@
 /*  Separado aqui a parte dos componentes (Buttons, Input, Select...)     */
 /*  Feito para poupar linhas do CSS Principal para demais configurações   */
 /*  Tiago Lucas (Git Tiagolucasoo)                                        */
-
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400');
 /* 1) Select e Pesquisa*/
 input, select{
   margin-top: 25px;
@@ -147,4 +147,67 @@ tbody td {
 tbody tr:hover {
     background-color: #e6f0ff;
     cursor: pointer;
+}
+
+/*5) Rodapé - Redes Sociais */
+.redes-sociais {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.btn-rede {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+.btn-rede i {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+.btn-rede:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+.btn-rede.github:hover {
+  background-color: #333;
+  color: white;
+}
+.btn-rede.linkedin:hover {
+  background-color: #0077b5;
+  color: white;
+}
+.btn-rede.email:hover {
+  background-color: #c71610;
+  color: white;
+}
+.btn-rede:hover i {
+  transform: scale(1.2);
+}
+
+p{ /* */
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+h1 {
+  font-size: 3rem;
+}
+h3{
+    margin-top: 50px;
+    font-family: sans-serif;
+}
+.h3_desc{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
 }

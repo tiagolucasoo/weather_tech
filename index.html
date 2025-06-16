@@ -40,7 +40,33 @@
 
     <!-- HTML, JS OK | Finalizar CSS -->
     <div class="Clima">
-      <div class="info_loc">
+      <div class="conf_pos1">
+        <h2 class="info_localizacao"></h2>
+      </div>
+
+      <div class="conf_pos1">
+      <div class="icone_clima"></div>
+          <div class="conf_pos2">
+            <h1 class="info_temperatura"></h1>
+            <h2 class="info_clima"></h2>
+            <h3 class="info_min_max"></h3>
+          </div>
+        </div><br><br>
+
+        <div class="conf_pos1">
+          <div class="conf_pos2">
+            <h3 class="info_vento1"></h3><h4 class="info_vento2"></h4>
+          </div>
+          <div class="conf_pos2">
+            <h3 class="info_chuva1"></h3><h4 class="info_chuva22"></h4>
+          </div>
+          <div class="conf_pos2">
+            <h3 class="info_precipitacao1"></h3><h4 class="info_precipitacao2"></h4>
+          </div>
+
+      </div>
+
+      <!-- <div class="info_loc">
         <div class="icone_clima"></div>
         <p class="info_temperatura"></p>
         <p class="info_clima"></p>
@@ -61,7 +87,7 @@
       <div class="info_loc">
         <p class="info_minima"></p>
         <p class="info_maxima"></p>
-      </div>
+      </div> -->
       
       <p class="erro"></p>
     </div>
@@ -177,13 +203,20 @@
         </table>
     </div>
 
-    <div class="Rodape">
-      <div style="display: flexbox; align-items: center; justify-items: center;">
-        <h4>Weather Tech 2025</h4>
-        <h4>Desenvolvido por Tiago Lucas</h4>
-        <h4>Acesse meu <a href="https://github.com/tiagolucasoo" target="_blank">GitHub</a> ou <a href="https://br.linkedin.com/in/tiagoollucas" target="_blank">LinkedIn</a></h4>
-      </div>
-    </div>
+    <footer class="rodape">
+      <h4>2025 &mdash; Weather Tech | Desenvolvido por <strong>Tiago Lucas</strong></h4>
+        <div class="redes-sociais">
+          <a href="https://github.com/tiagolucasoo" target="_blank" class="btn-rede github">
+          <i class="fab fa-github"></i><span>GitHub</span></a>
+
+          <a href="https://br.linkedin.com/in/tiagoollucas" target="_blank" class="btn-rede linkedin">
+          <i class="fab fa-linkedin"></i><span>LinkedIn</span></a>
+
+          <a href="mailto:tiago.lucas.oliveira18@gmail.com" target="_blank" class="btn-rede email">
+          <i class="fa fa-envelope"></i><span>Enviar e-mail</span></a>
+
+        </div>
+    </footer>
   </div>
 
   <!-- Importação | Se necessário separar um arquivo próprio para o Head do essencial-->

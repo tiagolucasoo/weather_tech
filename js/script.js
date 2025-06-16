@@ -52,7 +52,7 @@ function buscaAutomatica(){
             title: 'Um momento',
             timer: 5000,
             timerProgressBar: true,
-            text: 'Estamos carregando as informações de localização!',
+            text: 'Estamos carregando as informações de localização, aguarde alguns segundos e para isso é importante autorizar o acesso a localização!',
             showConfirmButton: false,
         });
 
@@ -77,6 +77,14 @@ function buscaAutomatica(){
     } catch (error) {
       console.error("Erro ao usar localização automática:", error);
       document.querySelector(".erro").innerText = "Erro ao usar localização automática.";
+      Swal.fire({
+            icon: 'error',
+            title: 'Erro ao usar a localização automática',
+            text: `Confirme se a localização está ativa e se você permitiu o site a fazer a consulta se não tente manualmente!`,
+            timer: 5000,
+            timerProgressBar: true,
+        });
+      gps_permissao();
     }
   });
 }
@@ -86,10 +94,12 @@ buscaAutomatica();
 async function buscarInformacoes(codigo_pais, cidade, nome_pais) {    
         const dadosCoord = await buscarCoordenadas(codigo_pais, cidade);
         if (!validarResultado(dadosCoord, cidade, nome_pais));
+        document.querySelector(".erro").innerText = "";
 
         const { latitude, longitude } = dadosCoord.results[0];
         const Info_Previsao_Completa = await Previsao_Completa(latitude, longitude);
         const Info_Previsao_Atual = await Previsao_Atual(latitude, longitude);
+        const Info_Previsao_Hora = await Previsao_Dia(latitude, longitude);
 
         console.log("Previsão Completa:", Info_Previsao_Completa);
         
@@ -99,11 +109,13 @@ async function buscarInformacoes(codigo_pais, cidade, nome_pais) {
         const vento = Info_Previsao_Atual.current_weather.windspeed;
         const clima = Info_Previsao_Atual.current_weather.weathercode;
 
-        const precipitacao = Info_Previsao_Completa.daily.precipitation_sum[0];
-        const cod1 = Info_Previsao_Completa.daily.weathercode[0];
         const temp_minima = Info_Previsao_Completa.daily.temperature_2m_min[0];
         const temp_maxima = Info_Previsao_Completa.daily.temperature_2m_max[0];
-        const porc_chuva = Info_Previsao_Completa.daily.precipitation_probability_max[0];
+
+        const precipitacao = validarHorarioPrecipitacao(Info_Previsao_Hora);
+        const cod1 = validarHorarioClima(Info_Previsao_Hora);
+        const porc_chuva = validarHorarioChuva(Info_Previsao_Hora);
+        console.log(porc_chuva);
 
         // Dados de Localização
         const estado = dadosCoord.results[0].admin1;

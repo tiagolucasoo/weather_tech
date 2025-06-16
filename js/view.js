@@ -3,19 +3,21 @@ function exibirResultado(cidade, temperatura, vento, nome_pais_api, estado, clim
     const icone = gerarIconeClima(cod1);
     document.querySelector(".icone_clima").innerHTML = icone;
 
-    document.querySelector(".info_cidade").innerText = `Cidade: ${cidade}`;
-    document.querySelector(".info_pais").innerText = `País: ${nome_pais_api}`;
-    document.querySelector(".info_estado").innerText = `Estado: ${estado}`;
+    document.querySelector(".info_localizacao").innerText = `📍 ${cidade}, ${estado} - ${nome_pais_api}`
 
     document.querySelector(".info_temperatura").innerText = `${temperatura}°C`;
     document.querySelector(".info_clima").innerText = `${climaDescricao}`;
 
-    document.querySelector(".info_vento").innerText = `Vento: ${vento} km/h`;
-    document.querySelector(".info_chuva").innerText = `Chuva: ${porc_chuva}%`;
-    document.querySelector(".info_precipitacao").innerText = `Precipitação: ${precipitacao}mm`;
+    document.querySelector(".info_vento1").innerText = `💨 Vento:`;
+    document.querySelector(".info_vento2").innerText = `${vento} km/h`;
+    
+    document.querySelector(".info_chuva1").innerText = `🌧️ Chuva:`;
+    document.querySelector(".info_chuva22").innerText = `${porc_chuva}%`;
 
-    document.querySelector(".info_minima").innerText = `Mínima: ${temp_minima}°C`;
-    document.querySelector(".info_maxima").innerText = `Máxima: ${temp_maxima}°C`;
+    document.querySelector(".info_precipitacao1").innerText = `💧 Precipitação:`;
+    document.querySelector(".info_precipitacao2").innerText = `${precipitacao}mm`;
+
+    document.querySelector(".info_min_max").innerText = `Mín: ${temp_minima}°C / Max: ${temp_maxima}`;
 }
 function criarTabela_Cabecalho() { 
   const tr_geral_info00 = document.querySelector(".tr_geral_info00");
@@ -50,7 +52,17 @@ function criarTabela_Dados(d_dias, d_clima, d_min, d_max, d_chuva, d_precipitaca
     dados_tabela.appendChild(tr);
   }
 }
+
+function estiloBox(){
+  const todasAsBoxes = document.querySelectorAll('.box');
+    todasAsBoxes.forEach((caixa, index) => {
+      caixa.classList.add('has-content');
+  });
+}
+
 function exibir_semana(i_dias, i_min, i_max, i_clima, i_chuva, i_cod) {
+  estiloBox();
+
   for (let i = 0; i < 6; i++){
     const indice = i +2;
     const clima = i_cod[i]

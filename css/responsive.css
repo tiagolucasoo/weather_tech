@@ -123,4 +123,16 @@
     .box:hover{
         cursor: pointer;
     }
+
+    ul {
+        position: absolute;
+        width: 80%;
+        max-width: 80%;
+        display: flex;
+        justify-content: space-between;
+    }
+    ul li a{
+        width: 30%;
+        height: auto;
+    }
 }
