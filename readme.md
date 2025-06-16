@@ -2,10 +2,11 @@
 - Uma aplicação web moderna e leve para consulta de previsão do tempo em tempo real, construída para ser uma interface limpa e intuitiva para os dados da API Open-Meteo.
 
 # ✨ Funcionalidades Principais
-- <b>Consulta Climática Atual:</b> Obtenha dados instantâneos como temperatura, vento, precipitação e sensação térmica.
-- <b>Previsão Semanal:</b> Visualize de forma rápida e clara a previsão para os próximos 7 dias em cards interativos.
-- <b>Previsão Detalhada de 15 Dias:</b> Uma tabela completa com informações de temperatura mínima, máxima, chance e volume de chuva para as próximas duas semanas.
-- <b>Busca Global:</b> Utiliza a API de Geocoding para encontrar e exibir o clima de qualquer cidade do mundo.
+- <b>Consulta Climática Atual:</b> Obtenha dados instantâneos como temperatura, vento, precipitação e chance de chuva.
+- <b>Previsão Semanal:</b> Visualize de forma rápida e clara a previsão para os próximos 7 dias em formatos de cards.
+- <b>Previsão Detalhada de 14 Dias:</b> Uma tabela completa com informações de temperatura mínima, máxima, chance de chuva e precipitação para as próximas duas semanas.
+- <b>Busca Global:</b> Utiliza a API de Geocoding para encontrar e exibir o clima de qualquer cidade da América do Sul manualmente, basta selecionar o país e digitar o nome da cidade.
+- <b>Busca Automática:</b> Atrávés da permissão de localização ao clicar no 2º botão, o de ícone de localização é possível fazer a busca automática!
 - <b>Ícones Dinâmicos:</b> A interface se adapta visualmente às condições climáticas, exibindo ícones correspondentes para cada tipo de tempo.
 
 # 🚀 Tecnologias Utilizadas
@@ -14,21 +15,23 @@
 - JavaScript (ES6+)
 
 # 🌐 APIs Utilizadas
-- <b>Open-Meteo (Climate):</b> Fornece os dados de previsão do tempo atuais e futuros.
-- <b>Open-Meteo (Geocoding):</b> Utilizada para converter nomes de cidades em coordenadas geográficas (latitude e longitude).
+- <b>Open-Meteo (Forecast):</b> Fornece os dados de previsão do tempo tendo como base coordenadas geográficas.
+- <b>Open-Meteo (Geocoding):</b> Utilizada para fazer a busca do nome da cidade e retornar com as coordenadas.
+- <b>Nominatim (Openstreetmap)</b> Utilizada para fazer a busca do nome da cidade, estado e país com base nas coordenadas (Para localização automática).
 
-# 📂 Estrutura do Projeto
-- O código foi organizado de forma modular para separar responsabilidades, facilitando a manutenção e a escalabilidade.
-<br>
-- `📄 index.html`
-- `📂 css`
-    - `estilo.css`
-    - `componentes.css`
-- `📂 js`
-    - `script.js`
-    - `view.js`
-    - `utils.js`
-    - `weathercode.js`
-- `📂 img`
-    - `logo3.png`
+# 🗂 Estrutura do projeto
+- `js`
+  - `get.js`
+  - `script.js`
+  - `utils.js`
+  - `view.js`
+- `css`
+  - `estilo.css`
+  - `componentes.css`
+- `index.html`
+- `img`
+
+# 📬 Contato
+- ✉️ tiago.lucas.oliveira18@gmail.com  
+- 🔗 [linkedin.com/in/tiagoollucas](https://linkedin.com/in/tiagoollucas)
 
