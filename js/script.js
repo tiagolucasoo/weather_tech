@@ -91,7 +91,8 @@ function buscaAutomatica(){
 
 buscaAutomatica();
 // Função principal // Previsao_Atual = buscarClima | Previsao_Completa = DadosCompletos
-async function buscarInformacoes(codigo_pais, cidade, nome_pais) {    
+async function buscarInformacoes(codigo_pais, cidade, nome_pais) {
+
         const dadosCoord = await buscarCoordenadas(codigo_pais, cidade);
         if (!validarResultado(dadosCoord, cidade, nome_pais));
         document.querySelector(".erro").innerText = "";

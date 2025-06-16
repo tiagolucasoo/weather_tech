@@ -86,6 +86,7 @@ html, body , .container {
 
 .conf_pos1 {
     display: flex;
+    padding: 10px;
     width: 80%;
     margin-left: 10%;
     justify-content: center;
@@ -93,6 +94,7 @@ html, body , .container {
     gap: 25px;
 }
 .conf_pos2 {
+    padding: 10px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -101,7 +103,22 @@ html, body , .container {
     justify-items: center;
     gap: 10px;
 }
-.conf_pos2 h1, .conf_pos2 h2, .conf_pos2 h3 {
+.conf_pos3 {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    gap: 10px;
+}
+
+.add_sombra {
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.conf_pos2 h1, .conf_pos2 h2, .conf_pos2 h3, .conf_pos2 h4 {
   margin: 0;
   align-items: center;
   justify-content: center;

@@ -3,7 +3,8 @@ function exibirResultado(cidade, temperatura, vento, nome_pais_api, estado, clim
     const icone = gerarIconeClima(cod1);
     document.querySelector(".icone_clima").innerHTML = icone;
 
-    document.querySelector(".info_localizacao").innerText = `📍 ${cidade}, ${estado} - ${nome_pais_api}`
+    document.querySelector(".info_localizacao").innerText = `📍 ${cidade}, ${estado} - ${nome_pais_api}`;
+    document.querySelector(".info_data_atual").innerText = `${dia_hora()}`;
 
     document.querySelector(".info_temperatura").innerText = `${temperatura}°C`;
     document.querySelector(".info_clima").innerText = `${climaDescricao}`;
@@ -14,7 +15,7 @@ function exibirResultado(cidade, temperatura, vento, nome_pais_api, estado, clim
     document.querySelector(".info_chuva1").innerText = `🌧️ Chuva:`;
     document.querySelector(".info_chuva22").innerText = `${porc_chuva}%`;
 
-    document.querySelector(".info_precipitacao1").innerText = `💧 Precipitação:`;
+    document.querySelector(".info_precipitacao1").innerText = `💧 Prec.`;
     document.querySelector(".info_precipitacao2").innerText = `${precipitacao}mm`;
 
     document.querySelector(".info_min_max").innerText = `Mín: ${temp_minima}°C / Max: ${temp_maxima}`;
@@ -53,15 +54,16 @@ function criarTabela_Dados(d_dias, d_clima, d_min, d_max, d_chuva, d_precipitaca
   }
 }
 
-function estiloBox(){
-  const todasAsBoxes = document.querySelectorAll('.box');
-    todasAsBoxes.forEach((caixa, index) => {
-      caixa.classList.add('has-content');
-  });
+function elementos_sombra(){
+  const elementos = document.querySelectorAll('.box, .conf_pos1, .conf_pos3');
+
+    elementos.forEach((elemento) => {
+      elemento.classList.add('has-content');
+    });
 }
 
 function exibir_semana(i_dias, i_min, i_max, i_clima, i_chuva, i_cod) {
-  estiloBox();
+  elementos_sombra();
 
   for (let i = 0; i < 6; i++){
     const indice = i +2;

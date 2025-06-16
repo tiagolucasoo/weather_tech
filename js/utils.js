@@ -81,20 +81,10 @@ function validarDia(codigo_semana){
     }
 }
 
-function limparBox() {
-  const boxes = document.querySelectorAll('.box');
-  boxes.forEach(box => {
-    box.classList.remove('box');
-  });
-}
-
-// 2) Limpar Campos
 function limparDados(){
     window.scrollTo({top: 0,behavior: 'smooth'});
     console.clear();
 
-    limparBox();
-    
     // Bloco 02 - Semanal
     for (let i = 2; i <= 7; i++) {
       document.querySelector(`.icone_clima${i}`).innerHTML = ``;
@@ -117,6 +107,7 @@ function limparDados(){
     document.querySelector(".info_precipitacao1").innerText = ``;
     document.querySelector(".info_precipitacao2").innerText = ``;
     document.querySelector(".info_min_max").innerText = ``;
+    document.querySelector(".info_data_atual").innerText = ``
 
     document.querySelector(".tr_geral_info00").innerHTML = ``;
     document.querySelector(".h3_desc").innerText = ``;
@@ -145,6 +136,16 @@ function dataAtual() {
   console.log(`Data Atual: ${dia}/${mes}/${ano}`);
   return `${ano}-${mes}-${dia}`
 }
+function dia_hora() {
+  const data = new Date();
+  const ano = data.getFullYear();
+  const mes = String(data.getMonth() + 1).padStart(2, '0');
+  const dia = String(data.getDate()).padStart(2, '0');
+
+
+  return `${dia}/${mes}/${ano} - ${horario()}`
+}
+
 function retornar_data_futura(dias){
   const data = new Date();
   data.setDate(data.getDate() + dias);
