@@ -26,7 +26,6 @@ input::placeholder {
   font-style: italic;
 }
 
-
 /* 2) Botão Maior - Pesquisar*/
 button {
   margin-top: 25px;
@@ -202,12 +201,13 @@ p{ /* */
 h1 {
   font-size: 3rem;
 }
-h3{
-    margin-top: 50px;
+h3, h4{
+    margin: 0;
     font-family: sans-serif;
 }
 .h3_desc{
   display: flex;
   justify-content: center;
   justify-items: center;
+  margin-top: 50px;
 }

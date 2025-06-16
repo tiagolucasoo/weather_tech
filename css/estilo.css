@@ -71,7 +71,9 @@ html, body , .container {
   border: 0px solid #ff0066;
   position: relative;
 }
-
+.info_localizacao{
+  text-align: center;
+}
 /*.container *:after {
   content:attr(class);
   position: absolute;
@@ -87,8 +89,8 @@ html, body , .container {
 .conf_pos1 {
     display: flex;
     padding: 10px;
-    width: 80%;
-    margin-left: 10%;
+    width: 90%;
+    margin-left: 5%;
     justify-content: center;
     align-items: center;
     gap: 25px;
@@ -114,11 +116,9 @@ html, body , .container {
     gap: 10px;
 }
 
-.add_sombra {
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+
 .conf_pos2 h1, .conf_pos2 h2, .conf_pos2 h3, .conf_pos2 h4 {
+  width: 100%;
   margin: 0;
   align-items: center;
   justify-content: center;
@@ -129,25 +129,19 @@ tbody tr:hover {
   background-color: #efefef;
 }
 
-
 .box {
   width: 25%;
   height: auto;
   border-radius: 10px;
   text-align: center;
   font-family: sans-serif;
-  transition: padding 0.2s ease, box-shadow 0.2s ease;
 }
 .box:hover{
-  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .box:empty {
   box-shadow: none;
   padding: 0;
-}
-.box.has-content {
-  padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .info_data2, .info_data3, .info_data4, .info_data5, .info_data6, .info_data7 {
@@ -159,18 +153,23 @@ tbody tr:hover {
 .info_clima2, .info_clima3, .info_clima4, .info_clima5, .info_clima6, .info_clima7{
   width: 100%;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 16px;
   color: #000;
+  text-align: right;
 }
 
 .bloco_clima_temperatura {
+  width: 80%;
+  height: auto;
+  margin-left: 10%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .icone_clima{
   font-size: 100px;
+  margin-left: 50px;
   height: min-content;
   filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
 }
@@ -178,6 +177,7 @@ tbody tr:hover {
 .icone_clima2, .icone_clima3, .icone_clima4, .icone_clima4, .icone_clima5, .icone_clima6, .icone_clima7 {
   font-size: 40px;
   filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
+  align-items: center;
 }
 
 .info_clima{

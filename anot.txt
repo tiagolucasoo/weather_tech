@@ -38,3 +38,6 @@ Geral OK
 Criar Função para pegar a localização
 Criar Função para buscar dados da cidade pelo appnomation
 Fazer validação de gps
+
+Finalização
+HTML:   Index()

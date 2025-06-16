@@ -53,17 +53,7 @@ function criarTabela_Dados(d_dias, d_clima, d_min, d_max, d_chuva, d_precipitaca
     dados_tabela.appendChild(tr);
   }
 }
-
-function elementos_sombra(){
-  const elementos = document.querySelectorAll('.box, .conf_pos1, .conf_pos3');
-
-    elementos.forEach((elemento) => {
-      elemento.classList.add('has-content');
-    });
-}
-
 function exibir_semana(i_dias, i_min, i_max, i_clima, i_chuva, i_cod) {
-  elementos_sombra();
 
   for (let i = 0; i < 6; i++){
     const indice = i +2;

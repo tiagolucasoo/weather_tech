@@ -6,13 +6,15 @@
   <title>Weather Tech - Previsão de Tempo</title>
   <link rel="stylesheet" href="css/estilo.css"> <!-- Folha Principal | Posicionamento, classes e afins -->
   <link rel="stylesheet" href="css/componentes.css"> <!-- Componentes imutáveis | Buttons, Select, Input... -->
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/responsive.css"> <!-- Parte Responsiva -->
+
+  <link rel="icon" href="img/ico.png" type="image/x-icon">
+  <link rel="shortcut icon" href="img/ico.png" type="image/x-icon">
 </head>
 <body>
   <div class="container">
     <div class="Logo"></div>
     <!-- Select, Input e Button (HTML, CSS, JS - OK)-->
-    <!-- Deixar Responsivo -->
     <div class="Pesquisa">
       <select id="combo_Pais">
         <option value="00" disabled selected>🌍 Selecione o País:</option>
@@ -38,7 +40,6 @@
       </div>
     </div>
 
-    <!-- HTML, JS OK | Finalizar CSS -->
     <div class="Clima">
       <div class="conf_pos1">
         <div class="conf_pos2">
@@ -48,7 +49,7 @@
       </div>
 
       <div class="conf_pos1">
-      <div class="icone_clima"></div>
+        <div class="icone_clima"></div>
           <div class="conf_pos2">
             <h1 class="info_temperatura"></h1>
             <h2 class="info_clima"></h2>
@@ -58,50 +59,19 @@
 
         <div class="conf_pos1">
           <div class="conf_pos3">
-            <div class="add_sombra">
               <h3 class="info_vento1"></h3><h4 class="info_vento2"></h4>
-            </div>
           </div>
           <div class="conf_pos3">
-            <div class="add_sombra">
               <h3 class="info_chuva1"></h3><h4 class="info_chuva22"></h4>
-            </div>
           </div>
           <div class="conf_pos3">
-            <div class="add_sombra">
               <h3 class="info_precipitacao1"></h3><h4 class="info_precipitacao2"></h4>
-            </div>
           </div>
-
       </div>
-
-      <!-- <div class="info_loc">
-        <div class="icone_clima"></div>
-        <p class="info_temperatura"></p>
-        <p class="info_clima"></p>
-      </div>
-
-      <div class="info_loc">
-        <p class="info_pais"></p>
-        <p class="info_estado"></p>
-        <p class="info_cidade"></p>
-      </div>
-
-      <div class="info_loc">
-        <p class="info_vento"></p>
-        <p class="info_chuva"></p>
-        <p class="info_precipitacao"></p>
-      </div>
-
-      <div class="info_loc">
-        <p class="info_minima"></p>
-        <p class="info_maxima"></p>
-      </div> -->
       
       <p class="erro"></p>
     </div>
 
-    <!-- HTML OK, JS "OK", CSS "OK" | FINALIZAR CONFIGURAÇÃO DA DATA APENAS -->
     <div class="Next_Days_1">
       <div class="container1">
 
@@ -184,7 +154,6 @@
       
     </div>
 
-    <!-- Escopo OK -->
     <div class="Next_Days_2">
       <h3 class="h3_desc"></h3>
         <table>
@@ -223,16 +192,15 @@
 
           <a href="mailto:tiago.lucas.oliveira18@gmail.com" target="_blank" class="btn-rede email">
           <i class="fa fa-envelope"></i><span>Enviar e-mail</span></a>
-
         </div>
     </footer>
   </div>
 
-  <!-- Importação | Se necessário separar um arquivo próprio para o Head do essencial-->
+  <!-- Importação | Analisar se necessário separar um arquivo próprio para o Head do ESSENCIAL -->
   <script src="js/script.js"></script> <!-- Código Principal-->
   <script src="js/get.js"></script> <!-- Icones e Criação das TAG's dos Icones -->
   <script src="js/utils.js"></script> <!-- Validações e Formatações -->
-  <script src="js/view.js"></script>
+  <script src="js/view.js"></script> <!-- Funções de exibição - Dia | Semana | Quinzena -->
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
